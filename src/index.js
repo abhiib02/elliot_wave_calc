@@ -230,7 +230,7 @@ save.addEventListener("click", () => {
   coinsdata.innerHTML = "";
   show();
 });
-//console.log(coins.children[1]);
+
 
 show();
 
