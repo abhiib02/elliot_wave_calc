@@ -1,7 +1,11 @@
 let submit = document.querySelector("#submit");
+let save = document.querySelector("#save");
 let waves = document.querySelector(".waves");
 let chart = document.querySelector(".chart");
 let getChart = document.querySelector("#getChart");
+let coinsdata = document.querySelector("#coins");
+var coins;
+
 let wave1s;
 let wave1e;
 let w1len,
@@ -21,10 +25,16 @@ let w1len,
   wave5_e2,
   wave5_n;
 
-submit.addEventListener("click", () => {
+function submitfunc(point0, point1) {
   //////////////wave 1///////////////
-  wave1s = document.querySelector("#wave1s").value;
-  wave1e = document.querySelector("#wave1e").value;
+  if ((point0 && point1) == null) {
+    wave1s = document.querySelector("#wave1s").value;
+    wave1e = document.querySelector("#wave1e").value;
+  }
+  if ((point0 && point1) != null) {
+    wave1s = point0;
+    wave1e = point1;
+  }
   wave1s = parseFloat(wave1s);
   wave1e = parseFloat(wave1e);
   console.log("wave 1 starting=", wave1s, "wave 1 ending=", wave1e);
@@ -81,136 +91,173 @@ submit.addEventListener("click", () => {
   console.log("wave 5 prices (w3 normal) =", wave5_n);
 
   waves.innerHTML = `
-  <table>
-  <tr>
-    <td>Points</td>
-    <td>Price</td>
-    <td>Price 2</td>
-    <td>Price 3</td>
+    <table class="table rounded table-striped">
+                  <thead>
+                <tr>
+                  <th>Points</th>
+                  <th>Price</th>
+                  <th>Price 2</th>
+                  <th>Price 3</th>
+                </tr>
+                <thead>
+    <tr>
+      <td>Point 0</td>
+      <td><b>${wave1s.toFixed(2)}</b></td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td>Point 1</td>
+      <td><b>${wave1e.toFixed(2)}</b></td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td>Point 2</td>
+      <td><b>${wave2dwl.toFixed(4)}</b></td>
+      <td><b>${wave2mdl.toFixed(4)}</b></td>
+      <td><b>${wave2upl.toFixed(4)}</b></td>
+      
+    </tr>
+    <tr class="text-light">
+      <td>(if Point3 is)</td>
+      <td style="background:#0d53a8;"><b>Normal</b></td>
+      <td style="background:#0da872;"><b>Extended</b></td>
+      <td style="background:#1f7308;"><b>Fully Extended</b></td>
+    </tr>
+    <tr>
+      <td>Point 3</td>
+      <td><b>${w3nor.toFixed(2)}</b></td>
+      <td><b>${w3ext.toFixed(2)}</b></td>
+      <td><b>${w3ext2.toFixed(2)}</b></td>
+    </tr>
+    <tr>
+      <td>Point 4 </td>
+      <td><b>${w4len1[2].toFixed(2)}</b></td>
+      <td><b>${w4len2[2].toFixed(2)}</b></td>
+      <td><b>${w4len3[2].toFixed(2)}</b></td>
+    </tr>
+    <tr>
+      <td>Point 5</td>
+      <td>
+          <b>
+              <span style="color: #0d53a8;">[${wave5_n[0].toFixed(2)}]</span>
+              &nbsp;
+              <span style="color: #0da872;">[${wave5_n[1].toFixed(2)}]</span>
+          </b>
+      </td>
+      <td>
+          <b><span style="color: #1f7308;">[${wave5_e[2].toFixed(2)}]</span></b>
+      </td>
+      <td>
+          <b><span style="color: #1f7308;">[${wave5_e2[2].toFixed(
+            2
+          )}]</span></b>
+      </td>
   </tr>
-  <tr>
-    <td>Point 0</td>
-    <td><b>${wave1s.toFixed(2)}</b></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Point 1</td>
-    <td><b>${wave1e.toFixed(2)}</b></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Point 2</td>
-    <td><b>${wave2dwl.toFixed(4)}</b></td>
-    <td><b>${wave2mdl.toFixed(4)}</b></td>
-    <td><b>${wave2upl.toFixed(4)}</b></td>
-    
-  </tr>
-  <tr class="text-light">
-    <td>(if Point3 is)</td>
-    <td style="background:#0d53a8;"><b>Normal</b></td>
-    <td style="background:#0da872;"><b>Extended</b></td>
-    <td style="background:#1f7308;"><b>Fully Extended</b></td>
-  </tr>
-  <tr>
-    <td>Point 3</td>
-    <td><b>${w3nor.toFixed(2)}</b></td>
-    <td><b>${w3ext.toFixed(2)}</b></td>
-    <td><b>${w3ext2.toFixed(2)}</b></td>
-  </tr>
-  <tr>
-    <td>Point 4 </td>
-    <td><b>${w4len1[2].toFixed(2)}</b></td>
-    <td><b>${w4len2[2].toFixed(2)}</b></td>
-    <td><b>${w4len3[2].toFixed(2)}</b></td>
-  </tr>
-  <tr>
-    <td>Point 5</td>
-    <td>
-        <b>
-            <span style="color: #0d53a8;">[${wave5_n[0].toFixed(2)}]</span>
-            &nbsp;
-            <span style="color: #0da872;">[${wave5_n[1].toFixed(2)}]</span>
-        </b>
-    </td>
-    <td>
-        <b><span style="color: #0d53a8;">[${wave5_e[0].toFixed(
-          2
-        )}]</span>&nbsp;<span style="color: #0da872;">[${wave5_e[1].toFixed(
-    2
-  )}]</span>&nbsp;<span style="color: #1f7308;">[${wave5_e[2].toFixed(
-    2
-  )}]</span></b>
-    </td>
-    <td>
-        <b><span style="color: #0d53a8;">[${wave5_e2[0].toFixed(
-          2
-        )}]</span>&nbsp;<span style="color: #0da872;">[${wave5_e2[1].toFixed(
-    2
-  )}]</span>&nbsp;<span style="color: #1f7308;">[${wave5_e2[2].toFixed(
-    2
-  )}]</span></b>
-    </td>
-</tr>
-</table>
-
-  `;
+  </table>
+  
+    `;
   getChart.removeAttribute("disabled");
+  save.removeAttribute("disabled");
   chart.innerHTML = `
-  <table class="charts-css line" id="my-chart">
-          <tbody>
-            
-            <tr>            
-              <td style="--start: 0; --size: 0.4; --color: blue;"">
-                <span class="data"> $${wave1e.toFixed(2)} </span>
+    <table class="charts-css line" id="my-chart">
+            <tbody>
+              
+              <tr>            
+                <td style="--start: 0; --size: 0.4; --color: blue;"">
+                  <span class="data"> $${wave1e.toFixed(2)} </span>
+                </td>
+              </tr>
+              <tr>
+                <td style="--start: 0.4; --size: 0.1; --color: blue;">
+                  <span class="data"> $${wave2dwl.toFixed(4)} </span>
+                </td>
+                <td style="--start: 0.4; --size: 0.2; --color: teal;">
+                  <span class="data"> $${wave2mdl.toFixed(4)} </span>
+                </td>
+                <td style="--start: 0.4; --size: 0.3; --color: green;">
+                  <span class="data"> $${wave2upl.toFixed(4)} </span>
+                </td>
+              </tr>
+              <tr>
+                <td style="--start: 0.1; --size: 0.6; --color: blue;">
+                  <span class="data"> $${w3nor.toFixed(2)} </span>
+                </td>
+                <td style="--start: 0.2; --size: 0.7; --color: teal;">
+                <span class="data"> $${w3ext.toFixed(2)} </span>
               </td>
-            </tr>
-            <tr>
-              <td style="--start: 0.4; --size: 0.1; --color: blue;">
-                <span class="data"> $${wave2dwl.toFixed(4)} </span>
-              </td>
-              <td style="--start: 0.4; --size: 0.2; --color: teal;">
-                <span class="data"> $${wave2mdl.toFixed(4)} </span>
-              </td>
-              <td style="--start: 0.4; --size: 0.3; --color: green;">
-                <span class="data"> $${wave2upl.toFixed(4)} </span>
-              </td>
-            </tr>
-            <tr>
-              <td style="--start: 0.1; --size: 0.6; --color: blue;">
-                <span class="data"> $${w3nor.toFixed(2)} </span>
-              </td>
-              <td style="--start: 0.2; --size: 0.7; --color: teal;">
-              <span class="data"> $${w3ext.toFixed(2)} </span>
+              <td style="--start: 0.3; --size: 0.8; --color: green;">
+              <span class="data"> $${w3ext2.toFixed(2)} </span>
             </td>
-            <td style="--start: 0.3; --size: 0.8; --color: green;">
-            <span class="data"> $${w3ext2.toFixed(2)} </span>
-          </td>
-            </tr>
-            <tr>
-              <td style="--start: 0.6; --size: 0.2; --color: blue;">
-                <span class="data"> $${w4len1[2].toFixed(2)} </span>
+              </tr>
+              <tr>
+                <td style="--start: 0.6; --size: 0.2; --color: blue;">
+                  <span class="data"> $${w4len1[2].toFixed(2)} </span>
+                </td>
+                <td style="--start: 0.7; --size: 0.3; --color: teal;">
+                <span class="data"> $${w4len2[2].toFixed(2)} </span>
               </td>
-              <td style="--start: 0.7; --size: 0.3; --color: teal;">
-              <span class="data"> $${w4len2[2].toFixed(2)} </span>
+              <td style="--start: 0.8; --size: 0.4; --color: green;">
+              <span class="data"> $${w4len3[2].toFixed(2)} </span>
             </td>
-            <td style="--start: 0.8; --size: 0.4; --color: green;">
-            <span class="data"> $${w4len3[2].toFixed(2)} </span>
-          </td>
-            </tr>
-            <tr>
-              <td style="--start: 0.2; --size: 0.7; --color: blue;">
-                <span class="data"> $${wave5_n[1].toFixed(2)} </span>
+              </tr>
+              <tr>
+                <td style="--start: 0.2; --size: 0.7; --color: blue;">
+                  <span class="data"> $${wave5_n[1].toFixed(2)} </span>
+                </td>
+                <td style="--start: 0.3; --size: 0.8; --color: teal;">
+                <span class="data"> $${wave5_e[2].toFixed(2)} </span>
               </td>
-              <td style="--start: 0.3; --size: 0.8; --color: teal;">
-              <span class="data"> $${wave5_e[2].toFixed(2)} </span>
+              <td style="--start: 0.4; --size: 0.9; --color: green;">
+              <span class="data"> $${wave5_e2[2].toFixed(2)} </span>
             </td>
-            <td style="--start: 0.4; --size: 0.9; --color: green;">
-            <span class="data"> $${wave5_e2[2].toFixed(2)} </span>
-          </td>
-            </tr>
-          </tbody>
-        </table>
-  `;
+              </tr>
+            </tbody>
+          </table>
+    `;
+}
+
+submit.addEventListener("click", () => {
+  submitfunc();
+});
+
+save.addEventListener("click", () => {
+  let name = prompt("Please enter name of Asset");
+  if (name != null) {
+    localStorage.setItem(`${name}`, `${wave1s},${wave1e}`);
+  }
+  coinsdata.innerHTML = "";
+  show();
+});
+//console.log(coins.children[1]);
+
+show();
+
+function show() {
+  var coinarray = Object.keys(localStorage);
+  coinarray = coinarray.sort();
+  for (let i = 0; i < coinarray.length; i++) {
+    let arr = localStorage.getItem(coinarray[i]).split(",");
+    if (coinarray[i] !== "__test__") {
+      if (coinarray[i] !== "running") {
+        coinsdata.innerHTML =
+          coinsdata.innerHTML +
+          `
+    <tr class="coin">
+      <td>${coinarray[i]}</td>
+      <td>${arr[0]}</td>
+      <td>${arr[1]}</td>
+    </tr>`;
+        coins = document.querySelectorAll(".coin");
+      }
+    }
+  }
+}
+coins.forEach((coin) => {
+  coin.addEventListener("click", () => {
+    document.querySelector("#wave1s").value = coin.children[1].textContent;
+    document.querySelector("#wave1e").value = coin.children[2].textContent;
+    submitfunc(coin.children[1].textContent, coin.children[2].textContent);
+  });
 });
