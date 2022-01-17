@@ -1,7 +1,8 @@
+const ctx = document.getElementById("myChart").getContext("2d");
 let submit = document.querySelector("#submit");
 let save = document.querySelector("#save");
 let waves = document.querySelector(".waves");
-let chart = document.querySelector(".chart");
+
 let getChart = document.querySelector("#getChart");
 let coinsdata = document.querySelector("#coins");
 var coins;
@@ -24,6 +25,43 @@ let w1len,
   wave5_e,
   wave5_e2,
   wave5_n;
+
+var myChart = new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: ["Point 0", "Point 1", "Point 2", "Point 3", "Point 4", "Point 5"],
+    datasets: [
+      {
+        label: "Normal",
+        data: [0, 10, 20, 30, 40, 50],
+        backgroundColor: ["rgba(2, 100, 181)"],
+        borderColor: ["rgba(2, 100, 181)"],
+        borderWidth: 4
+      },
+      {
+        label: "Extended",
+        data: [0, 10, 20, 30, 40, 50],
+        backgroundColor: ["rgba(255, 128, 0)"],
+        borderColor: ["rgba(255, 128, 0)"],
+        borderWidth: 4
+      },
+      {
+        label: "Fully Extended",
+        data: [0, 10, 20, 30, 40, 50],
+        backgroundColor: ["rgb(0, 153, 15)"],
+        borderColor: ["rgb(0, 153, 15)"],
+        borderWidth: 4
+      }
+    ]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
 
 function submitfunc(point0, point1) {
   //////////////wave 1///////////////
@@ -158,64 +196,34 @@ function submitfunc(point0, point1) {
   </table>
   
     `;
+
   getChart.removeAttribute("disabled");
   save.removeAttribute("disabled");
-  chart.innerHTML = `
-    <table class="charts-css line" id="my-chart">
-            <tbody>
-              
-              <tr>            
-                <td style="--start: 0; --size: 0.4; --color: blue;"">
-                  <span class="data"> $${wave1e.toFixed(2)} </span>
-                </td>
-              </tr>
-              <tr>
-                <td style="--start: 0.4; --size: 0.1; --color: blue;">
-                  <span class="data"> $${wave2dwl.toFixed(4)} </span>
-                </td>
-                <td style="--start: 0.4; --size: 0.2; --color: teal;">
-                  <span class="data"> $${wave2mdl.toFixed(4)} </span>
-                </td>
-                <td style="--start: 0.4; --size: 0.3; --color: green;">
-                  <span class="data"> $${wave2upl.toFixed(4)} </span>
-                </td>
-              </tr>
-              <tr>
-                <td style="--start: 0.1; --size: 0.6; --color: blue;">
-                  <span class="data"> $${w3nor.toFixed(2)} </span>
-                </td>
-                <td style="--start: 0.2; --size: 0.7; --color: teal;">
-                <span class="data"> $${w3ext.toFixed(2)} </span>
-              </td>
-              <td style="--start: 0.3; --size: 0.8; --color: green;">
-              <span class="data"> $${w3ext2.toFixed(2)} </span>
-            </td>
-              </tr>
-              <tr>
-                <td style="--start: 0.6; --size: 0.2; --color: blue;">
-                  <span class="data"> $${w4len1[2].toFixed(2)} </span>
-                </td>
-                <td style="--start: 0.7; --size: 0.3; --color: teal;">
-                <span class="data"> $${w4len2[2].toFixed(2)} </span>
-              </td>
-              <td style="--start: 0.8; --size: 0.4; --color: green;">
-              <span class="data"> $${w4len3[2].toFixed(2)} </span>
-            </td>
-              </tr>
-              <tr>
-                <td style="--start: 0.2; --size: 0.7; --color: blue;">
-                  <span class="data"> $${wave5_n[1].toFixed(2)} </span>
-                </td>
-                <td style="--start: 0.3; --size: 0.8; --color: teal;">
-                <span class="data"> $${wave5_e[2].toFixed(2)} </span>
-              </td>
-              <td style="--start: 0.4; --size: 0.9; --color: green;">
-              <span class="data"> $${wave5_e2[2].toFixed(2)} </span>
-            </td>
-              </tr>
-            </tbody>
-          </table>
-    `;
+
+  myChart.data.datasets[0].data[0] = wave1s;
+  myChart.data.datasets[0].data[1] = wave1e;
+  myChart.data.datasets[0].data[2] = wave2dwl;
+  myChart.data.datasets[0].data[3] = w3nor;
+  myChart.data.datasets[0].data[4] = w4len1[2];
+  myChart.data.datasets[0].data[5] = wave5_n[1];
+
+  myChart.data.datasets[1].data[0] = wave1s;
+  myChart.data.datasets[1].data[1] = wave1e;
+  myChart.data.datasets[1].data[2] = wave2mdl;
+  myChart.data.datasets[1].data[3] = w3ext;
+  myChart.data.datasets[1].data[4] = w4len2[2];
+  myChart.data.datasets[1].data[5] = wave5_e[1];
+
+  myChart.data.datasets[2].data[0] = wave1s;
+  myChart.data.datasets[2].data[1] = wave1e;
+  myChart.data.datasets[2].data[2] = wave2upl;
+  myChart.data.datasets[2].data[3] = w3ext2;
+  myChart.data.datasets[2].data[4] = w4len3[2];
+  myChart.data.datasets[2].data[5] = wave5_e2[2];
+
+  myChart.update();
+
+  console.log(myChart.data.datasets[0].data);
 }
 
 submit.addEventListener("click", () => {
@@ -230,7 +238,7 @@ save.addEventListener("click", () => {
   coinsdata.innerHTML = "";
   show();
 });
-
+//console.log(coins.children[1]);
 
 show();
 
