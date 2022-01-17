@@ -1,4 +1,65 @@
-const ctx = document.getElementById("myChart").getContext("2d");
+var ctx = document.getElementById("myChart").getContext("2d");
+var myChart = new Chart(ctx, {
+  plugins: [ChartDataLabels],
+  type: "line",
+  data: {
+    labels: ["Point 0", "Point 1", "Point 2", "Point 3", "Point 4", "Point 5"],
+    datasets: [
+      {
+        label: "Fully Extended",
+        data: [0, 10, 20, 30, 40, 50],
+        backgroundColor: ["rgb(0, 153, 15)"],
+        borderColor: ["rgb(0, 153, 15)"],
+        borderWidth: 1,
+        datalabels: {
+          anchor: "end",
+          align: "top",
+          offset: 10
+        }
+      },
+      {
+        label: "Extended",
+        data: [0, 10, 20, 30, 40, 50],
+        backgroundColor: ["rgba(255, 128, 0)"],
+        borderColor: ["rgba(255, 128, 0)"],
+        borderWidth: 1,
+        datalabels: {
+          anchor: "end",
+          align: "top",
+          offset: 10
+        }
+      },
+      {
+        label: "Normal",
+        data: [0, 10, 20, 30, 40, 50],
+        backgroundColor: ["rgba(2, 100, 181)"],
+        borderColor: ["rgba(2, 100, 181)"],
+        borderWidth: 1,
+        datalabels: {
+          anchor: "end",
+          align: "top",
+          offset: 10
+        }
+      }
+    ]
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: true
+      },
+      tooltip: {
+        mode: "index",
+        intersect: false
+      }
+    },
+    hover: {
+      mode: "nearest",
+      intersect: false
+    }
+  }
+});
+
 let submit = document.querySelector("#submit");
 let save = document.querySelector("#save");
 let waves = document.querySelector(".waves");
@@ -25,43 +86,6 @@ let w1len,
   wave5_e,
   wave5_e2,
   wave5_n;
-
-var myChart = new Chart(ctx, {
-  type: "line",
-  data: {
-    labels: ["Point 0", "Point 1", "Point 2", "Point 3", "Point 4", "Point 5"],
-    datasets: [
-      {
-        label: "Normal",
-        data: [0, 10, 20, 30, 40, 50],
-        backgroundColor: ["rgba(2, 100, 181)"],
-        borderColor: ["rgba(2, 100, 181)"],
-        borderWidth: 4
-      },
-      {
-        label: "Extended",
-        data: [0, 10, 20, 30, 40, 50],
-        backgroundColor: ["rgba(255, 128, 0)"],
-        borderColor: ["rgba(255, 128, 0)"],
-        borderWidth: 4
-      },
-      {
-        label: "Fully Extended",
-        data: [0, 10, 20, 30, 40, 50],
-        backgroundColor: ["rgb(0, 153, 15)"],
-        borderColor: ["rgb(0, 153, 15)"],
-        borderWidth: 4
-      }
-    ]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
 
 function submitfunc(point0, point1) {
   //////////////wave 1///////////////
@@ -200,26 +224,26 @@ function submitfunc(point0, point1) {
   getChart.removeAttribute("disabled");
   save.removeAttribute("disabled");
 
-  myChart.data.datasets[0].data[0] = wave1s;
-  myChart.data.datasets[0].data[1] = wave1e;
-  myChart.data.datasets[0].data[2] = wave2dwl;
-  myChart.data.datasets[0].data[3] = w3nor;
-  myChart.data.datasets[0].data[4] = w4len1[2];
-  myChart.data.datasets[0].data[5] = wave5_n[1];
+  myChart.data.datasets[2].data[0] = wave1s.toFixed(2);
+  myChart.data.datasets[2].data[1] = wave1e.toFixed(2);
+  myChart.data.datasets[2].data[2] = wave2dwl.toFixed(2);
+  myChart.data.datasets[2].data[3] = w3nor.toFixed(2);
+  myChart.data.datasets[2].data[4] = w4len1[2].toFixed(2);
+  myChart.data.datasets[2].data[5] = wave5_n[1].toFixed(2);
 
-  myChart.data.datasets[1].data[0] = wave1s;
-  myChart.data.datasets[1].data[1] = wave1e;
-  myChart.data.datasets[1].data[2] = wave2mdl;
-  myChart.data.datasets[1].data[3] = w3ext;
-  myChart.data.datasets[1].data[4] = w4len2[2];
-  myChart.data.datasets[1].data[5] = wave5_e[1];
+  myChart.data.datasets[1].data[0] = wave1s.toFixed(2);
+  myChart.data.datasets[1].data[1] = wave1e.toFixed(2);
+  myChart.data.datasets[1].data[2] = wave2mdl.toFixed(2);
+  myChart.data.datasets[1].data[3] = w3ext.toFixed(2);
+  myChart.data.datasets[1].data[4] = w4len2[2].toFixed(2);
+  myChart.data.datasets[1].data[5] = wave5_e[1].toFixed(2);
 
-  myChart.data.datasets[2].data[0] = wave1s;
-  myChart.data.datasets[2].data[1] = wave1e;
-  myChart.data.datasets[2].data[2] = wave2upl;
-  myChart.data.datasets[2].data[3] = w3ext2;
-  myChart.data.datasets[2].data[4] = w4len3[2];
-  myChart.data.datasets[2].data[5] = wave5_e2[2];
+  myChart.data.datasets[0].data[0] = wave1s.toFixed(2);
+  myChart.data.datasets[0].data[1] = wave1e.toFixed(2);
+  myChart.data.datasets[0].data[2] = wave2upl.toFixed(2);
+  myChart.data.datasets[0].data[3] = w3ext2.toFixed(2);
+  myChart.data.datasets[0].data[4] = w4len3[2].toFixed(2);
+  myChart.data.datasets[0].data[5] = wave5_e2[2].toFixed(2);
 
   myChart.update();
 
