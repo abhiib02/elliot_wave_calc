@@ -159,7 +159,7 @@ function submitfunc(point0, point1) {
     <tr class="text-dark">
       <td>(if Point3 is)</td>
       <td style="background:#0d53a8;"><b>Normal</b></td>
-      <td style="background:#0da872;"><b>Extended</b></td>
+      <td style="background:#ff8000;"><b>Extended</b></td>
       <td style="background:#1f7308;"><b>Fully Extended</b></td>
     </tr>
     <tr>
