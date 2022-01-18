@@ -13,20 +13,16 @@
 	table {
 		width: 100%;
 	}
-	
-	img {
+	img{
 		border-radius: 50%;
 	}
-	
-	.modal-body {
+	.modal-body{
 		display: grid;
-		place-items: center;
+		place-items:center;
 	}
-	
-	.chart-box {
-		width: 100%;
+	.chart-box{
+		width:100%;
 	}
-	
 	#coins {
 		display: table-caption;
 		width: inherit;
@@ -39,6 +35,7 @@
 		display: flex;
 		border-bottom-width: 1px;
 		justify-content: space-between;
+		
 	}
 	
 	#coins > tr > td {
@@ -49,7 +46,7 @@
 		min-height: 100vh;
 		display: grid;
 		place-items: center;
-		background: url("https://images.unsplash.com/photo-1640459958548-56c1c6717a40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+		background: linear-gradient(to right, #000428, #004e92);
 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 		background-size: cover;
 		background-attachment: fixed;
@@ -60,42 +57,43 @@
 		max-width: 70%;
 		margin: 0 auto;
 	}
-	
-	.calculator {
-		grid-area: calculator;
-	}
-	
-	.waves {
-		grid-area: waves;
-	}
-	
-	.Links {
-		grid-area: Links;
-	}
+					
+				.calculator { grid-area: calculator; }
+
+				.waves { grid-area: waves; }
+
+				.Links { grid-area: Links; }
+
 	</style>
 </head>
 
 <body class="">
 	<div class="container">
+		
 		<div class="text-light">
+
 			<h1 class="p-2 d-flex justify-content-center display-5">
 					Elliot Waves Calculator
 					
 				</h1>
+				
 			<div class="mb-2 d-flex justify-content-center display-8"> Just Tell Me Wave 1 Starting and ending price </div>
 		</div>
+
 		<div class="">
 			<div class="row">
 				<div class="col-lg-3">
-					<div class="calculator card p-2">
+				<div class="calculator card p-2">
 						<h5 class="card-title">Calculator</h5>
+				
 						<div class="mb-3">
 							<label for="exampleInputEmail1" class="form-label">Wave 1 Starting Point Price</label>
-							<input type="number" class="form-control" id="wave1s" placeholder="Point 0" /> </div>
+							<input type="number" class="form-control" id="wave1s" placeholder="Point 0"/> </div>
 						<div class="mb-3">
 							<label for="exampleInputPassword1" class="form-label">Wave 1 Ending Point Price</label>
 							<input type="number" class="form-control" id="wave1e" placeholder="Point 1" /> </div>
 						<button id="submit" class="btn btn-success">Calculate</button>
+						
 						<div class="row">
 							<div class="col-sm-6 mt-1">
 								<div class="d-grid gap-2">
@@ -105,7 +103,10 @@
 							<div class="col-sm-6 mt-1">
 								<div class="d-grid gap-2">
 									<button id="getChart" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled> Chart </button>
+									
 								</div>
+								
+								
 							</div>
 							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog modal-lg">
@@ -118,8 +119,8 @@
 										</div>
 										<div class="modal-body">
 											<div class="chart-box">
-												<canvas id="myChart"></canvas>
-											</div>
+											<canvas id="myChart"></canvas>
+										</div>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
@@ -131,7 +132,7 @@
 					</div>
 				</div>
 				<div class="col-lg-7">
-					<div class="waves card p-2">
+				<div class="waves card p-2">
 						<h5 class="card-title ">Wave Points</h5>
 						<div class="waves">
 							<table class="table rounded table-striped">
@@ -141,86 +142,98 @@
 										<th>Price</th>
 										<th>Price 2</th>
 										<th>Price 3</th>
+										
 									</tr>
 								</thead>
 								<tbody class="wavepoints">
-									<tr>
-										<td>Point 0</td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>Point 1</td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>Point 2</td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-									<tr class="table-dark">
-										<td>(if Point3 is)</td>
-										<td style="background: #0d53a8;"><b>Normal</b></td>
-										<td style="background: #ff8000;"><b>Extended</b></td>
-										<td style="background: #1f7308;"><b>Fully Extended</b></td>
-									</tr>
-									<tr>
-										<td>Point 3</td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>Point 4</td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>Point 5</td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-								</tbody>
+										<tr>
+											<td>Point 0</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										
+										</tr>
+										<tr>
+											<td>Point 1</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										
+										</tr>
+										<tr>
+											<td>Point 2</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											
+										</tr>
+										<tr class="text-dark">
+											<td>(if Point3 is)</td>
+											<td style="background:#0d53a8;"><b>Normal</b></td>
+											<td style="background:#1f7308;"><b>Extended</b></td>
+											<td style="background:#ff8000;"><b>Extended +</b></td>
+											
+										</tr>
+										<tr>
+											<td>Point 3</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											
+										</tr>
+										<tr>
+											<td>Point 4</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										
+										</tr>
+										<tr>
+											<td>Point 5</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										
+									</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-2">
-					<div class="Links p-2">
+				<div class="Links p-2">
 						<button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</button>
 						<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-							<div class="offcanvas-header">
-								<h5 id="offcanvasRightLabel"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</h5>
-								<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+								<div class="offcanvas-header">
+									<h5 id="offcanvasRightLabel"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</h5>
+									<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+								</div>
+								<div class="offcanvas-body">
+										<table class="table rounded table-striped">
+												<thead>
+													<tr>
+														<th>Logo</th>
+														<th>Name</th>
+														<th>Point 0</th>
+														<th>Point 1</th>
+													</tr>
+												</thead>
+												<tbody id="coins"> </tbody>
+											</table>
+								</div>
 							</div>
-							<div class="offcanvas-body">
-								<table class="table rounded table-striped">
-									<thead>
-										<tr>
-											<th>Logo</th>
-											<th>Name</th>
-											<th>Point 0</th>
-											<th>Point 1</th>
-										</tr>
-									</thead>
-									<tbody id="coins"> </tbody>
-								</table>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
-		<div class="d-flex justify-content-between m-2"> <sub><a class="btn-link" target="__blank" href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/9781118479506.app1">Learn Elliot Wave Thoery</a></sub> <sub><a class="btn-link" target="__blank" href="https://bhardwaj.netlify.app/#/">Design and Developed By Abhishek Bhardwaj</a></sub> </div>
+			</div>
+			<div class="d-flex justify-content-between m-2">
+					<sub><a class="btn-link" target="__blank" href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/9781118479506.app1">Learn Elliot Wave Thoery</a></sub>
+					<sub><a class="btn-link" target="__blank" href="https://bhardwaj.netlify.app/#/">Design and Developed By Abhishek Bhardwaj</a></sub>
+
+			</div>
+		
 	</div>
 	<!-- Modal -->
-	
+	</div>
 	<script src="src/index.js"></script>
 </body>
 
