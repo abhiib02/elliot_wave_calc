@@ -93,45 +93,30 @@
 							<label for="exampleInputPassword1" class="form-label">Wave 1 Ending Point Price</label>
 							<input type="number" class="form-control" id="wave1e" placeholder="Point 1" /> </div>
 						<button id="submit" class="btn btn-success">Calculate</button>
-						
 						<div class="row">
 							<div class="col-sm-6 mt-1">
 								<div class="d-grid gap-2">
-									<button id="save" class="btn btn-primary" disabled>Save</button>
+									<button id="save" class="btn btn-outline-primary" disabled>Save</button>
 								</div>
 							</div>
 							<div class="col-sm-6 mt-1">
 								<div class="d-grid gap-2">
-									<button id="getChart" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled> Chart </button>
+									<button id="getChart" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled> Chart </button>
 									
 								</div>
 								
 								
 							</div>
-							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-								<div class="modal-dialog modal-lg">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel">
-													Chart Represtation of elliot waves 
-												</h5>
-											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-										</div>
-										<div class="modal-body">
-											<div class="chart-box">
-											<canvas id="myChart"></canvas>
-										</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
-										</div>
-									</div>
-								</div>
-							</div>
+							
 						</div>
+							<button class="btn btn-outline-dark my-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</button>
+						
+					
+					
+
 					</div>
 				</div>
-				<div class="col-lg-7">
+				<div class="col-lg-9">
 				<div class="waves card p-2">
 						<h5 class="card-title ">Wave Points</h5>
 						<div class="waves">
@@ -199,30 +184,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-2">
-				<div class="Links p-2">
-						<button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</button>
-						<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-								<div class="offcanvas-header">
-									<h5 id="offcanvasRightLabel"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</h5>
-									<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-								</div>
-								<div class="offcanvas-body">
-										<table class="table rounded table-striped">
-												<thead>
-													<tr>
-														<th>Logo</th>
-														<th>Name</th>
-														<th>Point 0</th>
-														<th>Point 1</th>
-													</tr>
-												</thead>
-												<tbody id="coins"> </tbody>
-											</table>
-								</div>
-							</div>
-				</div>
-			</div>
+				
 		</div>
 			</div>
 			<div class="d-flex justify-content-between m-2">
@@ -232,6 +194,54 @@
 			</div>
 		
 	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">
+							Chart Represtation of elliot waves 
+						</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="chart-box">
+					<canvas id="myChart"></canvas>
+				</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+		<div class="offcanvas-header">
+			<h5 id="offcanvasRightLabel"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</h5>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+				<table class="table rounded table-striped">
+						<thead>
+							<tr>
+								<th>Logo</th>
+								<th>Name</th>
+								<th>Point 0</th>
+								<th>Point 1</th>
+							</tr>
+						</thead>
+						<tbody id="coins"> </tbody>
+					</table>
+		</div>
+	</div>
+
+
+
+
+
 	<!-- Modal -->
 	</div>
 	<script src="src/index.js"></script>
