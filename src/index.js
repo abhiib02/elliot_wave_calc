@@ -295,6 +295,7 @@ function show() {
     }
   }
 }
+if(coins){
 coins.forEach((coin) => {
   coin.addEventListener("click", () => {
     document.querySelector("#wave1s").value = coin.children[2].textContent;
@@ -302,3 +303,5 @@ coins.forEach((coin) => {
     submitfunc(coin.children[2].textContent, coin.children[3].textContent);
   });
 });
+}
+
