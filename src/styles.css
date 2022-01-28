@@ -1,3 +1,79 @@
 body {
   font-family: sans-serif;
 }
+.contact-buttons {
+  height: 60px;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  padding-top: 15px;
+}
+
+.social {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  border: 1.5px solid #272628;
+  border-radius: 28%;
+  margin-right: 1em;
+}
+
+/* Specific colors for each button */
+.github-social {
+  color: #272628;
+}
+.codepen-social {
+  color: #272628;
+}
+.fcc-social {
+  color: #106e29;
+}
+.twitter-social {
+  color: #55acee;
+}
+.linkedin-social {
+  color: #007bb5;
+}
+.medium-social {
+  color: #3cb371;
+}
+/* Change specific colors on :hover */
+.contact-buttons > a {
+  transition: all 0.5s;
+}
+.contact-buttons > a:hover,
+.contact-buttons > a:focus {
+  border: none;
+}
+.contact-buttons > a.github-social:hover,
+.contact-buttons > a.github-social:focus {
+  color: white;
+  background-color: #272628;
+}
+.contact-buttons > a.codepen-social:hover,
+.contact-buttons > a.codepen-social:focus {
+  color: white;
+  background-color: #272628;
+}
+.contact-buttons > a.fcc-social:hover,
+.contact-buttons > a.fcc-social:focus {
+  color: white;
+  background-color: #106e29;
+}
+.contact-buttons > a.twitter-social:hover,
+.contact-buttons > a.twitter-social:focus {
+  color: white;
+  background-color: #55acee;
+}
+.contact-buttons > a.linkedin-social:hover,
+.contact-buttons > a.linkedin-social:focus {
+  color: white;
+  background-color: #007bb5;
+}
+.contact-buttons > a.medium-social:hover,
+.contact-buttons > a.medium-social:focus {
+  color: white;
+  background-color: #3cb371;
+}
