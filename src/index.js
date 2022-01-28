@@ -1,4 +1,6 @@
 var ctx = document.getElementById("myChart").getContext("2d");
+var modaltitle = document.querySelector(".modal-title");
+
 var myChart = new Chart(ctx, {
   plugins: [ChartDataLabels],
   type: "line",
@@ -8,7 +10,7 @@ var myChart = new Chart(ctx, {
     datasets: [
       {
         label: "Extended + ",
-        data: [0, 10, 20, 30, 40, 50],
+        data: [0, 0, 0, 0, 0, 0],
         backgroundColor: ["rgb(0, 153, 15)"],
         borderColor: ["rgb(0, 153, 15)"],
         borderWidth: 1,
@@ -20,7 +22,7 @@ var myChart = new Chart(ctx, {
       },
       {
         label: "Extended",
-        data: [0, 10, 20, 30, 40, 50],
+        data: [0, 0, 0, 0, 0, 0],
         backgroundColor: ["rgba(255, 128, 0)"],
         borderColor: ["rgba(255, 128, 0)"],
         borderWidth: 1,
@@ -32,7 +34,7 @@ var myChart = new Chart(ctx, {
       },
       {
         label: "Normal",
-        data: [0, 10, 20, 30, 40, 50],
+        data: [0, 0, 0, 0, 0, 0],
         backgroundColor: ["rgba(2, 100, 181)"],
         borderColor: ["rgba(2, 100, 181)"],
         borderWidth: 1,
@@ -57,6 +59,14 @@ var myChart = new Chart(ctx, {
     hover: {
       mode: "nearest",
       intersect: false
+    },
+    scales: {
+      x: {
+        display: true
+      },
+      y: {
+        display: true
+      }
     }
   }
 });
@@ -164,14 +174,14 @@ function submitfunc(point0, point1) {
     
     <tr>
       <td>Point 0</td>
-      <td><b>${wave1s.toFixed(2)}</b></td>
+      <td><b>${wave1s.toFixed(4)}</b></td>
       <td>--</td>
       <td>--</td>
       
     </tr>
     <tr>
       <td>Point 1</td>
-      <td><b>${wave1e.toFixed(2)}</b></td>
+      <td><b>${wave1e.toFixed(4)}</b></td>
       <td>--</td>
       <td>--</td>
       
@@ -192,29 +202,29 @@ function submitfunc(point0, point1) {
     </tr>
     <tr>
       <td>Point 3</td>
-      <td><b>${w3nor.toFixed(2)}</b></td>
-      <td><b>${w3ext.toFixed(2)}</b></td>
-      <td><b>${w3ext2.toFixed(2)}</b></td>
+      <td><b>${w3nor.toFixed(4)}</b></td>
+      <td><b>${w3ext.toFixed(4)}</b></td>
+      <td><b>${w3ext2.toFixed(4)}</b></td>
       
     </tr>
     <tr>
       <td>Point 4 </td>
-      <td><b>${w4len1[2].toFixed(2)}</b></td>
-      <td><b>${w4len2[2].toFixed(2)}</b></td>
-      <td><b>${w4len3[2].toFixed(2)}</b></td>
+      <td><b>${w4len1[2].toFixed(4)}</b></td>
+      <td><b>${w4len2[2].toFixed(4)}</b></td>
+      <td><b>${w4len3[2].toFixed(4)}</b></td>
      
     </tr>
     <tr>
       <td>Point 5</td>
       <td>
           <b>
-              <span style="color: #0d53a8;">[${wave5_n[0].toFixed(2)}]</span>
+              <span style="color: #0d53a8;">[${wave5_n[0].toFixed(4)}]</span>
               &nbsp;
-              <span style="color: #0da872;">[${wave5_n[1].toFixed(2)}]</span>
+              <span style="color: #0da872;">[${wave5_n[1].toFixed(4)}]</span>
           </b>
       </td>
       <td>
-          <b><span style="color: #1f7308;">[${wave5_e[2].toFixed(2)}]</span></b>
+          <b><span style="color: #1f7308;">[${wave5_e[2].toFixed(4)}]</span></b>
       </td>
       <td>
           <b><span style="color: #1f7308;">[${wave5_e2[2].toFixed(
@@ -241,7 +251,7 @@ function submitfunc(point0, point1) {
   myChart.data.datasets[1].data[2] = wave2mdl.toFixed(2);
   myChart.data.datasets[1].data[3] = w3ext.toFixed(2);
   myChart.data.datasets[1].data[4] = w4len2[2].toFixed(2);
-  myChart.data.datasets[1].data[5] = wave5_e[1].toFixed(2);
+  myChart.data.datasets[1].data[5] = wave5_e[2].toFixed(2);
 
   myChart.data.datasets[0].data[0] = wave1s.toFixed(2);
   myChart.data.datasets[0].data[1] = wave1e.toFixed(2);
@@ -289,19 +299,21 @@ function show() {
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
+      
     </tr>`;
         coins = document.querySelectorAll(".coin");
       }
     }
   }
 }
-if(coins){
-coins.forEach((coin) => {
-  coin.addEventListener("click", () => {
-    document.querySelector("#wave1s").value = coin.children[2].textContent;
-    document.querySelector("#wave1e").value = coin.children[3].textContent;
-    submitfunc(coin.children[2].textContent, coin.children[3].textContent);
+if (coins) {
+  coins.forEach((coin) => {
+    coin.addEventListener("click", () => {
+      document.querySelector("#wave1s").value = "";
+      document.querySelector("#wave1e").value = "";
+      document.querySelector("#wave1s").value = coin.children[2].textContent;
+      document.querySelector("#wave1e").value = coin.children[3].textContent;
+      submitfunc(coin.children[2].textContent, coin.children[3].textContent);
+    });
   });
-});
 }
-
