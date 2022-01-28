@@ -9,6 +9,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js" integrity="sha512-R/QOHLpV1Ggq22vfDAWYOaMd5RopHrJNMxi8/lJu8Oihwi4Ho4BRFeiMiCefn9rasajKjnx9/fTQ/xkWnkDACg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="src/styles.css">
 	<style>
 	table {
 		width: 100%;
@@ -26,8 +27,8 @@
 	#coins {
 		display: table-caption;
 		width: inherit;
-		min-height: 300px;
-		max-height: 500px;
+		min-height: 350px;
+		max-height: 350px;
 		overflow-y: scroll;
 	}
 	
@@ -54,16 +55,18 @@
 	
 	#my-chart.line {
 		height: 500px;
-		max-width: 70%;
+		max-width: 100%;
 		margin: 0 auto;
 	}
 					
 				.calculator { grid-area: calculator; }
 
-				.waves { grid-area: waves; }
-
+				.card{background-color:rgba(0, 0, 0, 0.6); }
+				.offcanvas{background-color:rgba(0, 0, 0, 01); }
 				.Links { grid-area: Links; }
-
+				.offcanvas-body{
+					overflow-y: hidden;
+				}
 	</style>
 </head>
 
@@ -80,110 +83,33 @@
 			<div class="mb-2 d-flex justify-content-center display-8"> Just Tell Me Wave 1 Starting and ending price </div>
 		</div>
 
-		<div class="">
+		<div class="m-2">
 			<div class="row">
-				<div class="col-lg-3">
-				<div class="calculator card p-2">
+					<div class="col-lg-9 card ">
+							<div class="chart-box  p-2">
+									<canvas id="myChart"></canvas>
+								</div>
+							</div>
+				<div class="col-lg-3 card text-light">
+				<div class="calculator my-auto">
 						<h5 class="card-title">Calculator</h5>
-				
+						<hr>
 						<div class="mb-3">
 							<label for="exampleInputEmail1" class="form-label">Wave 1 Starting Point Price</label>
-							<input type="number" class="form-control" id="wave1s" placeholder="Point 0"/> </div>
+							<input type="number" class="form-control" id="wave1s" placeholder="Point 0" /> </div>
 						<div class="mb-3">
 							<label for="exampleInputPassword1" class="form-label">Wave 1 Ending Point Price</label>
 							<input type="number" class="form-control" id="wave1e" placeholder="Point 1" /> </div>
-						<button id="submit" class="btn btn-success">Calculate</button>
-						<div class="row">
-							<div class="col-sm-6 mt-1">
-								<div class="d-grid gap-2">
-									<button id="save" class="btn btn-outline-primary" disabled>Save</button>
-								</div>
-							</div>
-							<div class="col-sm-6 mt-1">
-								<div class="d-grid gap-2">
-									<button id="getChart" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled> Chart </button>
-									
-								</div>
-								
-								
-							</div>
-							
-						</div>
-							<button class="btn btn-outline-dark my-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</button>
-						
-					
-					
 
+							<div class="d-grid gap-2">
+									<button id="submit" class="btn btn-success btn-sm">Calculate</button>
+									<button id="save" class="btn btn-outline-primary btn-sm" disabled>Save</button>
+									<button id="getChart" type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled> Details </button>
+									<button class="btn btn-outline-dark btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</button>
+							</div>
 					</div>
 				</div>
-				<div class="col-lg-9">
-				<div class="waves card p-2">
-						<h5 class="card-title ">Wave Points</h5>
-						<div class="waves">
-							<table class="table rounded table-striped">
-								<thead>
-									<tr>
-										<th>Points</th>
-										<th>Price</th>
-										<th>Price 2</th>
-										<th>Price 3</th>
-										
-									</tr>
-								</thead>
-								<tbody class="wavepoints">
-										<tr>
-											<td>Point 0</td>
-											<td></td>
-											<td></td>
-											<td></td>
-										
-										</tr>
-										<tr>
-											<td>Point 1</td>
-											<td></td>
-											<td></td>
-											<td></td>
-										
-										</tr>
-										<tr>
-											<td>Point 2</td>
-											<td></td>
-											<td></td>
-											<td></td>
-											
-										</tr>
-										<tr class="text-dark">
-											<td>(if Point3 is)</td>
-											<td style="background:#0d53a8;"><b>Normal</b></td>
-											<td style="background:#1f7308;"><b>Extended</b></td>
-											<td style="background:#ff8000;"><b>Extended +</b></td>
-											
-										</tr>
-										<tr>
-											<td>Point 3</td>
-											<td></td>
-											<td></td>
-											<td></td>
-											
-										</tr>
-										<tr>
-											<td>Point 4</td>
-											<td></td>
-											<td></td>
-											<td></td>
-										
-										</tr>
-										<tr>
-											<td>Point 5</td>
-											<td></td>
-											<td></td>
-											<td></td>
-										
-									</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
+				
 				
 		</div>
 			</div>
@@ -200,14 +126,77 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">
-							Chart Represtation of elliot waves 
+							<h5 class="card-title">Wave Points</h5>
 						</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<div class="chart-box">
-					<canvas id="myChart"></canvas>
-				</div>
+						
+								
+								<div class="waves" style="width: 100%">
+									<table class="table rounded table-striped">
+										<thead>
+											<tr>
+												<th>Points</th>
+												<th>Price</th>
+												<th>Price 2</th>
+												<th>Price 3</th>
+												
+											</tr>
+										</thead>
+										<tbody class="wavepoints">
+												<tr>
+													<td>Point 0</td>
+													<td></td>
+													<td></td>
+													<td></td>
+												
+												</tr>
+												<tr>
+													<td>Point 1</td>
+													<td></td>
+													<td></td>
+													<td></td>
+												
+												</tr>
+												<tr>
+													<td>Point 2</td>
+													<td></td>
+													<td></td>
+													<td></td>
+													
+												</tr>
+												<tr class="text-dark">
+													<td>(if Point3 is)</td>
+													<td style="background:#0d53a8;"><b>Normal</b></td>
+													<td style="background:#1f7308;"><b>Extended</b></td>
+													<td style="background:#ff8000;"><b>Extended +</b></td>
+													
+												</tr>
+												<tr>
+													<td>Point 3</td>
+													<td></td>
+													<td></td>
+													<td></td>
+													
+												</tr>
+												<tr>
+													<td>Point 4</td>
+													<td></td>
+													<td></td>
+													<td></td>
+												
+												</tr>
+												<tr>
+													<td>Point 5</td>
+													<td></td>
+													<td></td>
+													<td></td>
+												
+											</tbody>
+									</table>
+								</div>
+							
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
@@ -220,23 +209,33 @@
 
 	<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
 		<div class="offcanvas-header">
-			<h5 id="offcanvasRightLabel"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</h5>
+			<h5 id="offcanvasRightLabel" class="text-light"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</h5>
 			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 		</div>
 		<div class="offcanvas-body">
-				<table class="table rounded table-striped">
+				<table class="table rounded  text-light">
 						<thead>
 							<tr>
 								<th>Logo</th>
 								<th>Name</th>
 								<th>Point 0</th>
 								<th>Point 1</th>
+								
 							</tr>
 						</thead>
 						<tbody id="coins"> </tbody>
 					</table>
+					<hr>
+					<div class="contact-buttons">
+							<a class="social github-social" href="https://github.com/abhiib02" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a>
+							<a class="social codepen-social" href="https://codepen.io/abhishek-bhardwaj" target="_blank"><i class="fab fa-codepen" aria-hidden="true"></i></a>
+							<a class="social twitter-social" href="https://twitter.com/Abhiib02" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+							<a class="social linkedin-social" href="https://www.linkedin.com/in/abhishek-bhardwaj-191b9784/" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+		
+						</div>
 		</div>
 	</div>
+	
 
 
 
