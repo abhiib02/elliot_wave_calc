@@ -77,6 +77,7 @@ let wavepoints = document.querySelector(".wavepoints");
 
 let getChart = document.querySelector("#getChart");
 let coinsdata = document.querySelector("#coins");
+var deleteCoin = document.querySelector("#deleteCoin");
 var coins;
 
 let wave1s;
@@ -299,7 +300,7 @@ function show() {
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
-      <td><button class="btn btn-danger" onclick="deleteCoin('${coinarray[i].toString()}')"><i class="fas fa-times-circle"></i></button></td>
+      <td><button class="btn btn-danger" id="deleteCoin" value="${coinarray[i]}" ><i class="fas fa-times-circle"></i></button></td>
       
       
     </tr>`;
@@ -319,6 +320,10 @@ if (coins) {
     });
   });
 }
+
+deleteCoin.addEventListener("click", () => {
+  
+})
 function deleteCoin(cointicker){
   console.log(cointicker);
   localStorage.removeItem(cointicker);
