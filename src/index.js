@@ -305,7 +305,7 @@ function show() {
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
-      <td><button class="btn btn-danger" onclick="localStorage.removeItem(${coinarray[i].toString()})" ><i class="fas fa-times-circle"></i></button></td>
+      <td><button class="btn btn-danger" onclick="delCoin(${coinarray[i]})" ><i class="fas fa-times-circle"></i></button></td>
       
       
     </tr>`;
@@ -314,9 +314,18 @@ function show() {
     }
   }
 }
+function delCoin(coin){
+  if (confirm('Are you sure you want to delete ?')) {
+    localStorage.removeItem(coin);  
+  } else {
+    
+  }
+  show();
+};
+
 if (coins) {
   coins.forEach((coin) => {
-    coin.addEventListener("click", () => {
+    coin.addEventListener("dblclick", () => {
       document.querySelector("#wave1s").value = "";
       document.querySelector("#wave1e").value = "";
       document.querySelector("#wave1s").value = coin.children[2].textContent;
