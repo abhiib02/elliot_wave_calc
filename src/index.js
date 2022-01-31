@@ -337,12 +337,12 @@ function show2() {
 function delCoin(coin){
   if (confirm('Are you sure you want to delete ?')) {
     localStorage.removeItem(coin);  
-    coinsdata.innerHTML='';
-    show2();
+    
   } else {
     
   }
-  
+  coinsdata.innerHTML='';
+    show2();
 };
 
 if (coins) {
