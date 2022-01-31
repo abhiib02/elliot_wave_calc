@@ -320,5 +320,6 @@ if (coins) {
   });
 }
 function deleteCoin(cointicker){
-  localStorage.removeItem(cointicker);
+  console.log(cointicker);
+  localStorage.removeItem(cointicker.toString());
 }
