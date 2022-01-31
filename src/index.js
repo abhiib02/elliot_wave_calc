@@ -326,7 +326,7 @@ function delCoin(coin){
 
 if (coins) {
   coins.forEach((coin) => {
-    coin.addEventListener("dblclick", () => {
+    coin.addEventListener("click", () => {
       document.querySelector("#wave1s").value = "";
       document.querySelector("#wave1e").value = "";
       document.querySelector("#wave1s").value = coin.children[2].textContent;
