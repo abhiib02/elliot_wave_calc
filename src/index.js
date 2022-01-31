@@ -113,26 +113,26 @@ function submitfunc(point0, point1) {
   }
   wave1s = parseFloat(wave1s);
   wave1e = parseFloat(wave1e);
-  console.log("wave 1 starting=", wave1s, "wave 1 ending=", wave1e);
-  //////////////wave 2///////////////
+  //console.log("wave 1 starting=", wave1s, "wave 1 ending=", wave1e);
+  ////////////wave 2///////////////
   w1len = wave1e - wave1s;
   wave2upl = wave1e - (wave1e - wave1s) * 0.5;
   wave2mdl = wave1e - (wave1e - wave1s) * 0.62;
   wave2dwl = wave1e - (wave1e - wave1s) * 0.79;
-  console.log("wave 2 retracement prices=", wave2upl, wave2mdl, wave2dwl);
+  //console.log("wave 2 retracement prices=", wave2upl, wave2mdl, wave2dwl);
   //////////////wave 3///////////////
   w3nor = wave2dwl + w1len * 1.62;
   w3ext = wave2dwl + w1len * 2.62;
   w3ext2 = wave2dwl + w1len * 4.236;
 
-  console.log(
+  /*console.log(
     "wave 3 end prices (normal,extended,extended2)  =",
     w3nor,
     w3ext,
     w3ext2,
     w3ext3,
     w3ext4
-  );
+  );*/
   w3len1 = w3nor - wave2dwl;
   w3len2 = w3ext - wave2dwl;
   w3len3 = w3ext2 - wave2dwl;
@@ -159,17 +159,17 @@ function submitfunc(point0, point1) {
     w4len3[2] + w1len * 4.23
   ];
 
-  console.log(
+  /*console.log(
     "wave 4 retracement prices (w3 extended+)=",
     w4len1[2],
     w4len2[2],
     w4len3[2]
   );
-  console.log("wave 5 prices (w3 extended+) =", wave5_e, wave5_e2);
+  console.log("wave 5 prices (w3 extended+) =", wave5_e, wave5_e2);*/
 
   wave5_n = [(w3nor - wave1s) * 0.62, (w3nor - wave1s) * 1.62];
-  console.log("wave 4 retracement prices (w3 normal)=", w4len1[2]);
-  console.log("wave 5 prices (w3 normal) =", wave5_n);
+  //console.log("wave 4 retracement prices (w3 normal)=", w4len1[2]);
+  //console.log("wave 5 prices (w3 normal) =", wave5_n);
 
   wavepoints.innerHTML = `
     
@@ -263,7 +263,7 @@ function submitfunc(point0, point1) {
 
   myChart.update();
 
-  console.log(myChart.data.datasets[0].data);
+  //console.log(myChart.data.datasets[0].data);
 }
 
 submit.addEventListener("click", () => {
@@ -325,7 +325,7 @@ deleteCoin.addEventListener("click", () => {
   console.log(deleteCoin);
 })
 function deleteCoin(cointicker){
-  console.log(cointicker);
+  
   localStorage.removeItem(cointicker);
   show();
 }
