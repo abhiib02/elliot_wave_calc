@@ -299,6 +299,8 @@ function show() {
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
+      <td><button class="btn btn-danger" onclick="deleteCoin(${coinarray[i]})"><i class="fas fa-times-circle"></i></button></td>
+      
       
     </tr>`;
         coins = document.querySelectorAll(".coin");
@@ -316,4 +318,7 @@ if (coins) {
       submitfunc(coin.children[2].textContent, coin.children[3].textContent);
     });
   });
+}
+function deleteCoin(cointicker){
+  localStorage.removeItem(cointicker);
 }
