@@ -310,10 +310,38 @@ function show() {
     }
   }
 }
+
+function show2() {
+  var coinarray = Object.keys(localStorage);
+  coinarray = coinarray.sort();
+  for (let i = 0; i < coinarray.length; i++) {
+    let arr = localStorage.getItem(coinarray[i]).split(",");
+    if (coinarray[i] !== "__test__") {
+      if (coinarray[i] !== "running") {
+        coinsdata.innerHTML =
+          `
+    <tr class="coin">
+    
+      <td><img width="32px" src="https://cryptoicon-api.vercel.app/api/icon/${coinarray[
+        i
+      ].toLowerCase()}"/></td>
+      <td>${coinarray[i]}</td>
+      <td>${arr[0]}</td>
+      <td>${arr[1]}</td>
+      <td><button class="btn btn-danger" onclick="delCoin('${coinarray[i].toString()}')" ><i class="fas fa-times-circle"></i></button></td>
+      
+      
+    </tr>`;
+        coins = document.querySelectorAll(".coin");
+      }
+    }
+  }
+}
+
 function delCoin(coin){
   if (confirm('Are you sure you want to delete ?')) {
     localStorage.removeItem(coin);  
-    show();
+    show2();
   } else {
     
   }
