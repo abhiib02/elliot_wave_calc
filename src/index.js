@@ -282,10 +282,6 @@ save.addEventListener("click", () => {
 
 show();
 
-deleteCoin.addEventListener("click", () => {
-  console.log(deleteCoin);
-  show();
-});
 
 function show() {
   var coinarray = Object.keys(localStorage);
