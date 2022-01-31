@@ -299,7 +299,7 @@ function show() {
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
-      <td><button class="btn btn-danger" onclick="deleteCoin(${coinarray[i]})"><i class="fas fa-times-circle"></i></button></td>
+      <td><button class="btn btn-danger" onclick="deleteCoin(${coinarray[i].toString()})"><i class="fas fa-times-circle"></i></button></td>
       
       
     </tr>`;
@@ -310,7 +310,7 @@ function show() {
 }
 if (coins) {
   coins.forEach((coin) => {
-    coin.addEventListener("click", () => {
+    coin.addEventListener("dblclick", () => {
       document.querySelector("#wave1s").value = "";
       document.querySelector("#wave1e").value = "";
       document.querySelector("#wave1s").value = coin.children[2].textContent;
@@ -321,5 +321,5 @@ if (coins) {
 }
 function deleteCoin(cointicker){
   console.log(cointicker);
-  localStorage.removeItem(cointicker.toString());
+  localStorage.removeItem(cointicker);
 }
