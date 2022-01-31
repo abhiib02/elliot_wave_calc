@@ -322,7 +322,7 @@ if (coins) {
 }
 
 deleteCoin.addEventListener("click", () => {
-  
+  console.log(deleteCoin.value);
 })
 function deleteCoin(cointicker){
   console.log(cointicker);
