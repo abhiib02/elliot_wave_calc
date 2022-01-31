@@ -322,5 +322,5 @@ if (coins) {
 function deleteCoin(cointicker){
   console.log(cointicker);
   localStorage.removeItem(cointicker);
-  show()
+  show();
 }
