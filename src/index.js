@@ -295,7 +295,7 @@ function show() {
           `
     <tr class="coin">
     
-      <td><img width="32px" src="https://cryptoicons.org/api/icon/${coinarray[i].toLowerCase()}/200"/></td>
+      <td><img width="32px" src=https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons/128/icon/${coinarray[i].toLowerCase()}.png"/></td>
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
