@@ -282,6 +282,11 @@ save.addEventListener("click", () => {
 
 show();
 
+deleteCoin.addEventListener("click", () => {
+  console.log(deleteCoin);
+  show();
+});
+
 function show() {
   var coinarray = Object.keys(localStorage);
   coinarray = coinarray.sort();
@@ -300,7 +305,7 @@ function show() {
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
-      <td><button class="btn btn-danger" id="deleteCoin" value="${coinarray[i]}" ><i class="fas fa-times-circle"></i></button></td>
+      <td><button class="btn btn-danger" onclick="${()=>{localStorage.removeItem(coinarray[i].toString());show();}}" ><i class="fas fa-times-circle"></i></button></td>
       
       
     </tr>`;
@@ -321,11 +326,3 @@ if (coins) {
   });
 }
 
-deleteCoin.addEventListener("click", () => {
-  console.log(deleteCoin);
-})
-function deleteCoin(cointicker){
-  
-  localStorage.removeItem(cointicker);
-  show();
-}
