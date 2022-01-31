@@ -318,10 +318,8 @@ function show2() {
     let arr = localStorage.getItem(coinarray[i]).split(",");
     if (coinarray[i] !== "__test__") {
       if (coinarray[i] !== "running") {
-        coinsdata.innerHTML =
-          `
+        coinsdata.innerHTML =`
     <tr class="coin">
-    
       <td><img width="32px" src="https://cryptoicon-api.vercel.app/api/icon/${coinarray[
         i
       ].toLowerCase()}"/></td>
@@ -329,8 +327,6 @@ function show2() {
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
       <td><button class="btn btn-danger" onclick="delCoin('${coinarray[i].toString()}')" ><i class="fas fa-times-circle"></i></button></td>
-      
-      
     </tr>`;
         coins = document.querySelectorAll(".coin");
       }
@@ -341,11 +337,11 @@ function show2() {
 function delCoin(coin){
   if (confirm('Are you sure you want to delete ?')) {
     localStorage.removeItem(coin);  
-    show2();
+    
   } else {
     
   }
-  
+  show2();
 };
 
 if (coins) {
