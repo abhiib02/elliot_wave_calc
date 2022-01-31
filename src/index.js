@@ -315,9 +315,9 @@ function delCoin(coin){
     localStorage.removeItem(coin);  
     
   } else {
-    
+    show();
   }
-  show();
+  
 };
 
 if (coins) {
