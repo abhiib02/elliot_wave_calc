@@ -101,11 +101,20 @@ let w1len,
   wave5_e2,
   wave5_n;
 
+  
+  
 function submitfunc(point0, point1) {
   //////////////wave 1///////////////
+  if(document.querySelector('#Multiplier').value){
+    let multiplier=document.querySelector('#Multiplier').value;
+  }else{
+    let multiplier=1;
+  }
+
   if ((point0 && point1) == null) {
-    wave1s = document.querySelector("#wave1s").value;
-    wave1e = document.querySelector("#wave1e").value;
+    wave1s = document.querySelector("#wave1s").value * multiplier;
+    wave1e = document.querySelector("#wave1e").value * multiplier;
+    
   }
   if ((point0 && point1) != null) {
     wave1s = point0;
