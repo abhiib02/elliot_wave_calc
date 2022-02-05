@@ -105,9 +105,10 @@ let w1len,
 function submitfunc(point0, point1) {
   //////////////wave 1///////////////
   var multiplier=document.querySelector('#Multiplier').value;
-  if(multiplier!==null){
-  }else{
+  if(multiplier==null){
     multiplier=1;
+  }else{
+    
   }
 
   if ((point0 && point1) == null) {
