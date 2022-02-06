@@ -104,11 +104,13 @@ let w1len,
 
 function submitfunc(point0, point1) {
   //////////////wave 1///////////////
- 
+  console.log(multiplier);
   if(multiplier.value==""){
     let multi=1;
+    console.log(multi);
   }else{
     let multi= parseInt(multiplier.value);
+    console.log(multi);
   }
 
   if ((point0 && point1) == null) {
