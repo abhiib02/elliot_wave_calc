@@ -101,14 +101,14 @@ let w1len,
   wave5_e2,
   wave5_n;
   var multiplier=document.querySelector('#Multiplier');
-  var multi;
+
 function submitfunc(point0, point1) {
   //////////////wave 1///////////////
  
   if(multiplier.value==""){
-    multi=1;
+    let multi=1;
   }else{
-    multi= parseInt(multiplier.value);
+    let multi= parseInt(multiplier.value);
   }
 
   if ((point0 && point1) == null) {
