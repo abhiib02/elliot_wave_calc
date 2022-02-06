@@ -104,21 +104,21 @@ let w1len,
 
 function submitfunc(point0, point1) {
   //////////////wave 1///////////////
-  var multiplier=document.querySelector('#Multiplier');
-  console.log(multiplier);
-  if(multiplier.value==""){
-    let multi=1;
-    console.log(multi);
-  }else{
-    let multi= parseInt(multiplier.value);
-    console.log(multi);
-  }
+  
+  
+  
 
   if ((point0 && point1) == null) {
     wave1s = document.querySelector("#wave1s").value ;
     wave1e = document.querySelector("#wave1e").value ;
-    wave1s=wave1s*multi;
-    wave1e=wave1e*multi;
+    var multiplier=document.querySelector('#Multiplier');
+    if(multiplier.value==""){
+      wave1s=wave1s*1;
+      wave1e=wave1e*1;
+    }else{
+      wave1s=wave1s*parseInt(multiplier.value);
+      wave1e=wave1e*parseInt(multiplier.value);
+    }
   }
   if ((point0 && point1) != null) {
     wave1s = point0;
