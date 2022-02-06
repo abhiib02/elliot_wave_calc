@@ -111,7 +111,7 @@ function submitfunc(point0, point1) {
   if ((point0 && point1) == null) {
     wave1s = document.querySelector("#wave1s").value ;
     wave1e = document.querySelector("#wave1e").value ;
-    var multiplier=document.querySelector('#Multiplier');
+    let multiplier=document.querySelector('#Multiplier');
     if(multiplier.value==""){
       wave1s=wave1s*1;
       wave1e=wave1e*1;
