@@ -100,10 +100,11 @@ let w1len,
   wave5_e,
   wave5_e2,
   wave5_n;
-  var multiplier=document.querySelector('#Multiplier');
+  
 
 function submitfunc(point0, point1) {
   //////////////wave 1///////////////
+  var multiplier=document.querySelector('#Multiplier');
   console.log(multiplier);
   if(multiplier.value==""){
     let multi=1;
