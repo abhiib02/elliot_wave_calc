@@ -100,22 +100,22 @@ let w1len,
   wave5_e,
   wave5_e2,
   wave5_n;
-  
-  
+  var multiplier=document.querySelector('#Multiplier');
+  var multi;
 function submitfunc(point0, point1) {
   //////////////wave 1///////////////
-  var multiplier=document.querySelector('#Multiplier').value;
-  if(multiplier==null){
-    multiplier=1;
+ 
+  if(multiplier.value==""){
+    multi=1;
   }else{
-    
+    multi= parseInt(multiplier.value);
   }
 
   if ((point0 && point1) == null) {
     wave1s = document.querySelector("#wave1s").value ;
     wave1e = document.querySelector("#wave1e").value ;
-    wave1s=wave1s*multiplier;
-    wave1e=wave1e*multiplier;
+    wave1s=wave1s*multi;
+    wave1e=wave1e*multi;
   }
   if ((point0 && point1) != null) {
     wave1s = point0;
