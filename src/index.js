@@ -308,7 +308,7 @@ function show() {
           `
     <tr class="coin">
     
-      <td><img width="32px" src="https://s3-symbol-logo.tradingview.com/crypto/XTVC${coinarray[i].toLowerCase()}.svg"/></td>
+      <td><img width="32px" src="https://s3-symbol-logo.tradingview.com/crypto/XTVC${coinarray[i].toUpperCase()}.svg"/></td>
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
