@@ -319,11 +319,7 @@ function show() {
           `
     <tr class="coin">
     
-      <td>
-            <object width="32px" data="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSROxdqcF6F-dngsRT-lYEA46xmPbXSFFd1FQ&usqp=CAU" type="image/png">
-              <img width="32px" src="https://s3-symbol-logo.tradingview.com/crypto/XTVC${coinarray[i].toUpperCase()}.svg">
-            </object>
-      </td>
+      <td><img width="32px" alt="" src="https://s3-symbol-logo.tradingview.com/crypto/XTVC${coinarray[i].toUpperCase()}.svg" onerror="this.onerror=null;this.src='https://static.thenounproject.com/png/3674270-200.png';"></td>
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
