@@ -102,7 +102,16 @@ let w1len,
   wave5_n;
   
 
-function submitfunc(point0, point1) {
+function extractCoindata(coin){
+  
+  fetch(`https://api.coingecko.com/api/v3/search?query=${coin}`)
+  .then(response => response.json())
+  .then(data => data);
+
+
+}
+
+  function submitfunc(point0, point1) {
   //////////////wave 1///////////////
   
   
@@ -296,6 +305,8 @@ save.addEventListener("click", () => {
 show();
 
 
+
+
 function show() {
   var coinarray = Object.keys(localStorage);
   coinarray = coinarray.sort();
@@ -308,7 +319,11 @@ function show() {
           `
     <tr class="coin">
     
-      <td><img width="32px" src="https://s3-symbol-logo.tradingview.com/crypto/XTVC${coinarray[i].toUpperCase()}.svg"/></td>
+      <td>
+            <object width="32px" data="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSROxdqcF6F-dngsRT-lYEA46xmPbXSFFd1FQ&usqp=CAU" type="image/png">
+              <img width="32px" src="https://s3-symbol-logo.tradingview.com/crypto/XTVC${coinarray[i].toUpperCase()}.svg">
+            </object>
+      </td>
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
