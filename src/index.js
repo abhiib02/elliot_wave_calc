@@ -320,8 +320,8 @@ function show() {
     <tr class="coin">
     
       <td>
-            <object width="32px" data="https://s3-symbol-logo.tradingview.com/crypto/XTVC${coinarray[i].toUpperCase()}.svg" type="image/svg">
-              <img width="32px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSROxdqcF6F-dngsRT-lYEA46xmPbXSFFd1FQ&usqp=CAU">
+            <object width="32px" data="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSROxdqcF6F-dngsRT-lYEA46xmPbXSFFd1FQ&usqp=CAU" type="image/png">
+              <img width="32px" src="https://s3-symbol-logo.tradingview.com/crypto/XTVC${coinarray[i].toUpperCase()}.svg">
             </object>
       </td>
       <td>${coinarray[i]}</td>
