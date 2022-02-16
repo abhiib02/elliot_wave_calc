@@ -312,6 +312,49 @@ function show() {
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
+      <td><a class="text-primary" data-bs-toggle="modal" data-bs-target="#${coinarray[i]}"><i class="fas fa-chart-area"></i></a>
+            <div class="modal fade" id="${coinarray[i]}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body rc1">
+                                <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                      <div id="tradingview_71ced"></div>
+                      <div class="tradingview-widget-copyright"></div>
+                      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                      <script type="text/javascript">
+                      new TradingView.widget(
+                      {
+                      "width": 980,
+                      "height": 610,
+                      "symbol": "${coinarray[i]}USDT",
+                      "interval": "D",
+                      "timezone": "Etc/UTC",
+                      "theme": "dark",
+                      "style": "1",
+                      "locale": "in",
+                      "toolbar_bg": "#f1f3f6",
+                      "enable_publishing": false,
+                      "allow_symbol_change": true,
+                      "container_id": "tradingview_71ced"
+                    }
+                      );
+                      </script>
+                    </div>
+                    <!-- TradingView Widget END -->
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+          </div>
+        </div>
+      </td>
       <td><a class="text-danger" onclick="delCoin('${coinarray[i].toString()}')" ><i class="fas fa-trash-alt"></i></a></td>
       
       
@@ -342,6 +385,7 @@ if (coins) {
       document.querySelector("#wave1e").value = "";
       document.querySelector("#wave1s").value = coin.children[2].textContent;
       document.querySelector("#wave1e").value = coin.children[3].textContent;
+      
       submitfunc(coin.children[2].textContent, coin.children[3].textContent);
     });
   });
