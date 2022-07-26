@@ -3,20 +3,7 @@
 
 <head>
 	<title>Elliot Waves Calculator</title>
-	<link rel="apple-touch-icon" sizes="180x180" href="https://img.icons8.com/emoji/344/chart-increasing-emoji.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="https://img.icons8.com/emoji/344/chart-increasing-emoji.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="https://img.icons8.com/emoji/344/chart-increasing-emoji.png">
 	<meta charset="UTF-8" />
-	<meta property="og:title" content="Elliot Waves Calculator">
-    <meta property="og:description" content="A calculator which utilizes elliot wave theory in technical chart analysis to determine possible price peaks and bottoms.">
-    <meta property="og:image" content="https://bhardwaj.netlify.app/img/ewc.33adb6cd.png">
-    <meta property="og:url" content="https://abhiib02.github.io/elliot_wave_calc/">
-    <meta property="og:type" content="Investment Tool" />
-    <meta name="twitter:title" content="Elliot Waves Calculator">
-    <meta name="twitter:description" content="A calculator which utilizes elliot wave theory in technical chart analysis to determine possible price peaks and bottoms.">
-    <meta name="twitter:image" content=" https://bhardwaj.netlify.app/img/ewc.33adb6cd.png">
-    <meta name="twitter:card" content="https://abhiib02.github.io/elliot_wave_calc/">
-	
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
@@ -104,7 +91,7 @@
 		<div class="text-light">
 
 			<h1 class="p-2 d-flex justify-content-center display-5">
-				📈 Elliot Waves Calculator 📈
+					Elliot Waves Calculator
 					
 				</h1>
 				
@@ -112,7 +99,7 @@
 		</div>
 
 		<div class="m-2">
-			<div class="row g-2">
+			<div class="row">
 					<div class="col-lg-9 card ">
 							<div class="chart-box  p-2">
 									<canvas id="myChart"></canvas>
@@ -120,14 +107,15 @@
 							</div>
 				<div class="col-lg-3 card ">
 				<div class="calculator my-auto">
-						<h5 class="card-title px-2">Calculator</h5>
+						<h5 class="card-title">Calculator</h5>
 						<hr>
 						<div class="mb-3">
-							<input type="number" class="form-control" id="wave1s" placeholder="Starting Price" /> </div>
+							<label for="exampleInputEmail1" class="form-label">Wave 1 Starting Point Price</label>
+							<input type="number" class="form-control" id="wave1s" placeholder="Point 0" /> </div>
 						<div class="mb-3">
-							<input type="number" class="form-control" id="wave1e" placeholder="Ending Price" /> </div>
-						<div class="mb-3">
-								<input type="number" class="form-control" id="Multiplier" placeholder="Multiplier"/> </div>
+							<label for="exampleInputPassword1" class="form-label">Wave 1 Ending Point Price</label>
+							<input type="number" class="form-control" id="wave1e" placeholder="Point 1" /> </div>
+
 							<div class="d-grid gap-2">
 									<button id="submit" class="btn btn-success btn-sm">Calculate</button>
 									<button id="save" class="btn btn-outline-primary btn-sm" disabled>Save</button>

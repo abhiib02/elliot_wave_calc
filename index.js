@@ -100,34 +100,12 @@ let w1len,
   wave5_e,
   wave5_e2,
   wave5_n;
-  
 
-function extractCoindata(coin){
-  
-  fetch(`https://api.coingecko.com/api/v3/search?query=${coin}`)
-  .then(response => response.json())
-  .then(data => data);
-
-
-}
-
-  function submitfunc(point0, point1) {
+function submitfunc(point0, point1) {
   //////////////wave 1///////////////
-  
-  
-  
-
   if ((point0 && point1) == null) {
-    wave1s = document.querySelector("#wave1s").value ;
-    wave1e = document.querySelector("#wave1e").value ;
-    let multiplier=document.querySelector('#Multiplier');
-    if(multiplier.value==""){
-      wave1s=wave1s*1;
-      wave1e=wave1e*1;
-    }else{
-      wave1s=wave1s*parseInt(multiplier.value);
-      wave1e=wave1e*parseInt(multiplier.value);
-    }
+    wave1s = document.querySelector("#wave1s").value;
+    wave1e = document.querySelector("#wave1e").value;
   }
   if ((point0 && point1) != null) {
     wave1s = point0;
@@ -305,8 +283,6 @@ save.addEventListener("click", () => {
 show();
 
 
-
-
 function show() {
   var coinarray = Object.keys(localStorage);
   coinarray = coinarray.sort();
@@ -319,7 +295,9 @@ function show() {
           `
     <tr class="coin">
     
-      <td><img width="32px" alt="" src="https://s3-symbol-logo.tradingview.com/crypto/XTVC${coinarray[i].toUpperCase()}.svg" onerror="this.onerror=null;this.src='https://static.thenounproject.com/png/3674270-200.png';"></td>
+      <td><img width="32px" src="https://cryptoicon-api.vercel.app/api/icon/${coinarray[
+        i
+      ].toLowerCase()}"/></td>
       <td>${coinarray[i]}</td>
       <td>${arr[0]}</td>
       <td>${arr[1]}</td>
