@@ -7,8 +7,7 @@ var myChart = new Chart(ctx, {
   data: {
     labels: ["Point 0", "Point 1", "Point 2", "Point 3", "Point 4", "Point 5"],
 
-    datasets: [
-      {
+    datasets: [{
         label: "Extended + ",
         data: [0, 0, 0, 0, 0, 0],
         backgroundColor: ["rgb(0, 153, 15)"],
@@ -100,33 +99,33 @@ let w1len,
   wave5_e,
   wave5_e2,
   wave5_n;
-  
 
-function extractCoindata(coin){
-  
+
+function extractCoindata(coin) {
+
   fetch(`https://api.coingecko.com/api/v3/search?query=${coin}`)
-  .then(response => response.json())
-  .then(data => data);
+    .then(response => response.json())
+    .then(data => data);
 
 
 }
 
-  function submitfunc(point0, point1) {
+function submitfunc(point0, point1) {
   //////////////wave 1///////////////
-  
-  
-  
+
+
+
 
   if ((point0 && point1) == null) {
-    wave1s = document.querySelector("#wave1s").value ;
-    wave1e = document.querySelector("#wave1e").value ;
-    let multiplier=document.querySelector('#Multiplier');
-    if(multiplier.value==""){
-      wave1s=wave1s*1;
-      wave1e=wave1e*1;
-    }else{
-      wave1s=wave1s*parseInt(multiplier.value);
-      wave1e=wave1e*parseInt(multiplier.value);
+    wave1s = document.querySelector("#wave1s").value;
+    wave1e = document.querySelector("#wave1e").value;
+    let multiplier = document.querySelector('#Multiplier');
+    if (multiplier.value == "") {
+      wave1s = wave1s * 1;
+      wave1e = wave1e * 1;
+    } else {
+      wave1s = wave1s * parseInt(multiplier.value);
+      wave1e = wave1e * parseInt(multiplier.value);
     }
   }
   if ((point0 && point1) != null) {
@@ -290,12 +289,23 @@ function extractCoindata(coin){
 
 submit.addEventListener("click", () => {
   submitfunc();
+
 });
 
 save.addEventListener("click", () => {
   let name = prompt("Please enter name of Asset");
   if (name != null) {
-    localStorage.setItem(`${name}`, `${wave1s},${wave1e}`);
+    let coins_arr;
+    coins_arr = JSON.parse(localStorage.getItem('coins_arr'));
+    if (coins_arr == null) {
+      coins_arr = [];
+    }
+    let temp_obj = {};
+    temp_obj.name = `${name}`, temp_obj.w1s = `${wave1s}`, temp_obj.w1e = `${wave1e}`;
+    coins_arr.push(temp_obj);
+    localStorage.removeItem('coins_arr');
+    localStorage.setItem('coins_arr', JSON.stringify(coins_arr));
+
   }
   coinsdata.innerHTML = "";
   show();
@@ -308,42 +318,42 @@ show();
 
 
 function show() {
-  var coinarray = Object.keys(localStorage);
-  coinarray = coinarray.sort();
+  var coinarray = JSON.parse(localStorage.getItem('coins_arr'));
+  console.log(coinarray);
   for (let i = 0; i < coinarray.length; i++) {
-    let arr = localStorage.getItem(coinarray[i]).split(",");
-    if (coinarray[i] !== "__test__") {
-      if (coinarray[i] !== "running") {
-        coinsdata.innerHTML =
-          coinsdata.innerHTML +
-          `
+    coinsdata.innerHTML =
+      coinsdata.innerHTML +
+      `
     <tr class="coin">
     
-      <td><img width="32px" alt="" src="https://s3-symbol-logo.tradingview.com/crypto/XTVC${coinarray[i].toUpperCase()}.svg" onerror="this.onerror=null;this.src='https://static.thenounproject.com/png/3674270-200.png';"></td>
-      <td>${coinarray[i]}</td>
-      <td>${arr[0]}</td>
-      <td>${arr[1]}</td>
-      <td><a class="text-danger" onclick="delCoin('${coinarray[i].toString()}')" ><i class="fas fa-trash-alt"></i></a></td>
+      <td><img width="32px" alt="" src="https://s3-symbol-logo.tradingview.com/crypto/XTVC${coinarray[i].name.toUpperCase()}.svg" onerror="this.onerror=null;this.src='https://static.thenounproject.com/png/3674270-200.png';"></td>
+      <td>${coinarray[i].name}</td>
+      <td>${coinarray[i].w1s}</td>
+      <td>${coinarray[i].w1e}</td>
+      <td><a class="text-danger" onclick="delCoin('${coinarray[i]}')" ><i class="fas fa-trash-alt"></i></a></td>
       
       
     </tr>`;
-        coins = document.querySelectorAll(".coin");
-      }
-    }
+    coins = document.querySelectorAll(".coin");
+
+
   }
 }
 
 
 
-function delCoin(coin){
+function delCoin(coin) {
   if (confirm('Are you sure you want to delete ?')) {
-    localStorage.removeItem(coin);  
-    coinsdata.innerHTML='';
+    var coinarray = JSON.parse(localStorage.getItem('coins_arr'));
+    coinarray.splice(coin, 1);
+    localStorage.removeItem('coins_arr');
+    localStorage.setItem('coins_arr', JSON.stringify(coinarray));
+    coinsdata.innerHTML = '';
     show();
   } else {
-    
+
   }
-  
+
 };
 
 if (coins) {
@@ -357,4 +367,3 @@ if (coins) {
     });
   });
 }
-
