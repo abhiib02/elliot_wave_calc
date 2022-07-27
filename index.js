@@ -73,7 +73,9 @@ var myChart = new Chart(ctx, {
 let submit = document.querySelector("#submit");
 let save = document.querySelector("#save");
 let wavepoints = document.querySelector(".wavepoints");
-
+let ex = document.querySelector("#export");
+let json_data = document.querySelector("#importJson");
+let confirmimp = document.querySelector("#confirmImport");
 let getChart = document.querySelector("#getChart");
 let coinsdata = document.querySelector("#coins");
 var deleteCoin = document.querySelector("#deleteCoin");
@@ -367,3 +369,50 @@ if (coins) {
     });
   });
 }
+
+
+
+
+function exportToJsonFile() {
+  
+  let dataStr = localStorage.getItem('coins_arr')
+  if(dataStr==''){
+    let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+    let exportFileDefaultName = 'data.json';
+    let linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
+  }
+  else{
+    alert('List is Empty');
+  }
+  
+}
+
+
+confirmimp.addEventListener('click',()=>{
+  try{
+    let append_arr = JSON.parse(json_data.value);
+    let coins_arr;
+    coins_arr = JSON.parse(localStorage.getItem('coins_arr'));
+    if (coins_arr == null) {
+      coins_arr = [];
+    }
+  for(let i=0;i<append_arr.length;i++){
+    coins_arr[coins_arr.length]=append_arr[i];
+  }
+  localStorage.removeItem('coins_arr');
+  localStorage.setItem('coins_arr', JSON.stringify(coins_arr));
+  alert('Data Successfully Imported')
+  coinsdata.innerHTML = "";
+  show();
+  }
+  catch(err){
+    alert(err);
+    json_data.value='';
+  };
+  
+  
+})
+ex.addEventListener('click',()=>{exportToJsonFile();})
