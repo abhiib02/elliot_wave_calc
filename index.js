@@ -376,7 +376,7 @@ if (coins) {
 function exportToJsonFile() {
   
   let dataStr = localStorage.getItem('coins_arr')
-  if(dataStr==''){
+  if(dataStr!=''){
     let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
     let exportFileDefaultName = 'data.json';
     let linkElement = document.createElement('a');
