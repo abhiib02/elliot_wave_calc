@@ -332,7 +332,7 @@ function show() {
       <td>${coinarray[i].name}</td>
       <td>${coinarray[i].w1s}</td>
       <td>${coinarray[i].w1e}</td>
-      <td><a class="text-danger" onclick="delCoin(${coinarray.indexOf(coinarray[i].name)})" ><i class="fas fa-trash-alt"></i></a></td>
+      <td><a class="text-danger" onclick="delCoin(${coinarray})"><i class="fas fa-trash-alt"></i></a></td>
       
       
     </tr>`;
