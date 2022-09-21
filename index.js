@@ -345,7 +345,7 @@ function show() {
 
 
 function delCoin(coin) {
-  console.log(coin.name);
+  console.log(JSON.stringify(coin));
   /*if (confirm(`Are you sure you want to delete  ${coin} ?`)) {
     var coinarray = JSON.parse(localStorage.getItem('coins_arr'));
     console.log(coinarray)
