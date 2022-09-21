@@ -332,7 +332,7 @@ function show() {
       <td>${coinarray[i].name}</td>
       <td>${coinarray[i].w1s}</td>
       <td>${coinarray[i].w1e}</td>
-      <td><a class="text-danger" onclick="delCoin(${coinarray[i]})" ><i class="fas fa-trash-alt"></i></a></td>
+      <td><a class="text-danger" onclick="delCoin(${coinarray.indexOf(i)})" ><i class="fas fa-trash-alt"></i></a></td>
       
       
     </tr>`;
@@ -345,7 +345,6 @@ function show() {
 
 
 function delCoin(coin) {
-  console.log(Object.values(coin));
   /*if (confirm(`Are you sure you want to delete  ${coin} ?`)) {
     var coinarray = JSON.parse(localStorage.getItem('coins_arr'));
     console.log(coinarray)
