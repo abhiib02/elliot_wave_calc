@@ -347,7 +347,9 @@ function show() {
 function delCoin(coin) {
   if (confirm('Are you sure you want to delete ?')) {
     var coinarray = JSON.parse(localStorage.getItem('coins_arr'));
+    console.log(coinarray)
     coinarray.splice(coin, 1);
+    console.log(coinarray)
     localStorage.removeItem('coins_arr');
     localStorage.setItem('coins_arr', JSON.stringify(coinarray));
     coinsdata.innerHTML = '';
