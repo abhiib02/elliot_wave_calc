@@ -345,7 +345,8 @@ function show() {
 
 
 function delCoin(coin) {
-  if (confirm(`Are you sure you want to delete  ${coin} ?`)) {
+  console.log(coin);
+  /*if (confirm(`Are you sure you want to delete  ${coin} ?`)) {
     var coinarray = JSON.parse(localStorage.getItem('coins_arr'));
     console.log(coinarray)
     coinarray.splice(coin, 1);
@@ -356,7 +357,7 @@ function delCoin(coin) {
     show();
   } else {
 
-  }
+  }*/
 
 };
 
