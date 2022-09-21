@@ -317,7 +317,7 @@ save.addEventListener("click", () => {
 show();
 
 
-
+// ------------- SHOWS COIN  FUNCTION ------//
 
 function show() {
   var coinarray = JSON.parse(localStorage.getItem('coins_arr'));
@@ -342,8 +342,7 @@ function show() {
   }
 }
 
-
-
+// ------------- DELETE COIN FUNCTION ------//
 function delCoin(coin) {
   if (confirm(`Are you sure you want to delete ?`)) {
     var coinarray = JSON.parse(localStorage.getItem('coins_arr'));
@@ -374,7 +373,7 @@ if (coins) {
 
 
 
-
+// ------------- EXPORT COIN DATA FUNCTION ------//
 function exportToJsonFile() {
   
   let dataStr = localStorage.getItem('coins_arr')
