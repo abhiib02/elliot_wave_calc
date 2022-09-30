@@ -140,12 +140,12 @@ function submitfunc(point0, point1) {
   ////////////wave 2///////////////
   w1len = wave1e - wave1s;
   wave2upl = wave1e - (wave1e - wave1s) * 0.5;
-  wave2mdl = wave1e - (wave1e - wave1s) * 0.62;
-  wave2dwl = wave1e - (wave1e - wave1s) * 0.79;
+  wave2mdl = wave1e - (wave1e - wave1s) * 0.618;
+  wave2dwl = wave1e - (wave1e - wave1s) * 0.786;
   //console.log("wave 2 retracement prices=", wave2upl, wave2mdl, wave2dwl);
   //////////////wave 3///////////////
-  w3nor = wave2dwl + w1len * 1.62;
-  w3ext = wave2dwl + w1len * 2.62;
+  w3nor = wave2dwl + w1len * 1.618;
+  w3ext = wave2dwl + w1len * 2.618;
   w3ext2 = wave2dwl + w1len * 4.236;
 
   /*console.log(
@@ -164,9 +164,9 @@ function submitfunc(point0, point1) {
   w4len1 = [w3nor - w3len1 * 0.24, w3nor - w3len1 * 0.38, w3nor - w3len1 * 0.5];
   w4len2 = [w3ext - w3len2 * 0.24, w3ext - w3len2 * 0.38, w3ext - w3len2 * 0.5];
   w4len3 = [
-    w3ext2 - w3len3 * 0.24,
-    w3ext2 - w3len3 * 0.38,
-    w3ext2 - w3len3 * 0.5
+    w3ext2 - w3len3 * 0.236,
+    w3ext2 - w3len3 * 0.5,
+    w3ext2 - w3len3 * 0.786
   ];
 
   //////////////wave 5///////////////
