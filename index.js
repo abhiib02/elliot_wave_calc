@@ -190,7 +190,7 @@ function submitfunc(point0, point1) {
   );
   console.log("wave 5 prices (w3 extended+) =", wave5_e, wave5_e2);*/
 
-  wave5_n = [w1len ,(w3nor - wave1s) * 0.62, (w3nor - wave1s) * 1.62];
+  wave5_n = [(w3nor - wave1s) * 0.62, (w3nor - wave1s) * 1.62];
   //console.log("wave 4 retracement prices (w3 normal)=", w4len1[2]);
   //console.log("wave 5 prices (w3 normal) =", wave5_n);
 
