@@ -161,12 +161,12 @@ function submitfunc(point0, point1) {
   w3len3 = w3ext2 - wave2dwl;
 
   //////////////wave 4///////////////
-  w4len1 = [w3nor - w3len1 * 0.236, w3nor - w3len1 * 0.5, w3nor - w3len1 * 0.786];
-  w4len2 = [w3ext - w3len2 * 0.236, w3ext - w3len2 * 0.5, w3ext - w3len2 * 0.786];
+  w4len1 = [w3nor - w3len1 * 0.236, w3nor - w3len1 * 0.382, w3nor - w3len1 * 0.5];
+  w4len2 = [w3ext - w3len2 * 0.236, w3ext - w3len2 * 0.382, w3ext - w3len2 * 0.5];
   w4len3 = [
     w3ext2 - w3len3 * 0.236,
-    w3ext2 - w3len3 * 0.5,
-    w3ext2 - w3len3 * 0.786
+    w3ext2 - w3len3 * 0.382,
+    w3ext2 - w3len3 * 0.5
   ];
 
   //////////////wave 5///////////////
@@ -190,7 +190,7 @@ function submitfunc(point0, point1) {
   );
   console.log("wave 5 prices (w3 extended+) =", wave5_e, wave5_e2);*/
 
-  wave5_n = [(w3nor - wave1s) * 0.62, (w3nor - wave1s) * 1.62];
+  wave5_n = [w1len ,(w3nor - wave1s) * 0.62, (w3nor - wave1s) * 1.62];
   //console.log("wave 4 retracement prices (w3 normal)=", w4len1[2]);
   //console.log("wave 5 prices (w3 normal) =", wave5_n);
 
