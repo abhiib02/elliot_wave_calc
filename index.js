@@ -161,8 +161,8 @@ function submitfunc(point0, point1) {
   w3len3 = w3ext2 - wave2dwl;
 
   //////////////wave 4///////////////
-  w4len1 = [w3nor - w3len1 * 0.24, w3nor - w3len1 * 0.38, w3nor - w3len1 * 0.5];
-  w4len2 = [w3ext - w3len2 * 0.24, w3ext - w3len2 * 0.38, w3ext - w3len2 * 0.5];
+  w4len1 = [w3nor - w3len1 * 0.236, w3nor - w3len1 * 0.5, w3nor - w3len1 * 0.786];
+  w4len2 = [w3ext - w3len2 * 0.236, w3ext - w3len2 * 0.5, w3ext - w3len2 * 0.786];
   w4len3 = [
     w3ext2 - w3len3 * 0.236,
     w3ext2 - w3len3 * 0.5,
