@@ -411,6 +411,7 @@ confirmimp.addEventListener('click',()=>{
   }
   catch(err){
     alert(err);
+    console.log(err);
     json_data.value='';
   };
   
