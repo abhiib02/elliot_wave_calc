@@ -8,147 +8,177 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="https://img.icons8.com/emoji/344/chart-increasing-emoji.png">
 	<meta charset="UTF-8" />
 	<meta property="og:title" content="Elliot Waves Calculator">
-    <meta property="og:description" content="A calculator which utilizes elliot wave theory in technical chart analysis to determine possible price peaks and bottoms.">
-    <meta property="og:image" content="https://bhardwaj.netlify.app/img/ewc.33adb6cd.png">
-    <meta property="og:url" content="https://abhiib02.github.io/elliot_wave_calc/">
-    <meta property="og:type" content="Investment Tool" />
-    <meta name="twitter:title" content="Elliot Waves Calculator">
-    <meta name="twitter:description" content="A calculator which utilizes elliot wave theory in technical chart analysis to determine possible price peaks and bottoms.">
-    <meta name="twitter:image" content=" https://bhardwaj.netlify.app/img/ewc.33adb6cd.png">
-    <meta name="twitter:card" content="https://abhiib02.github.io/elliot_wave_calc/">
-	
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+	<meta property="og:description"
+		content="A calculator which utilizes elliot wave theory in technical chart analysis to determine possible price peaks and bottoms.">
+	<meta property="og:image" content="https://bhardwaj.netlify.app/img/ewc.33adb6cd.png">
+	<meta property="og:url" content="https://abhiib02.github.io/elliot_wave_calc/">
+	<meta property="og:type" content="Investment Tool" />
+	<meta name="twitter:title" content="Elliot Waves Calculator">
+	<meta name="twitter:description"
+		content="A calculator which utilizes elliot wave theory in technical chart analysis to determine possible price peaks and bottoms.">
+	<meta name="twitter:image" content=" https://bhardwaj.netlify.app/img/ewc.33adb6cd.png">
+	<meta name="twitter:card" content="https://abhiib02.github.io/elliot_wave_calc/">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+		crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js" integrity="sha512-R/QOHLpV1Ggq22vfDAWYOaMd5RopHrJNMxi8/lJu8Oihwi4Ho4BRFeiMiCefn9rasajKjnx9/fTQ/xkWnkDACg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"
+		integrity="sha512-R/QOHLpV1Ggq22vfDAWYOaMd5RopHrJNMxi8/lJu8Oihwi4Ho4BRFeiMiCefn9rasajKjnx9/fTQ/xkWnkDACg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="styles.css">
 	<style>
-	table {
-		width: 100%;
-	}
-	img{
-		border-radius: 50%;
-	}
-	.modal-body{
-		display: grid;
-		place-items:center;
-	}
-	.chart-box{
-		width:100%;
-	}
-	#coins {
-		display: table-caption;
-		width: inherit;
-		min-height: 350px;
-		max-height: 350px;
-		overflow-y: scroll;
-	}
-	
-	#coins > tr {
-		display: flex;
-		border-bottom-width: 1px;
-		justify-content: space-between;
-		transition: all 1s ease;
-		border-radius: 10px;
-		border-style: none !important;
-		
-	}
-	#coins > tr:hover {
-		background-image: linear-gradient(-90deg, rgba(255,255,255,1) 0%, rgba(0,78,146,1) 100%);
-		
-	}
-	#coins > tr > td {
-		width: 33%;
-		display: grid;
-		place-items: center;
-		cursor: pointer;
-		border-style: none !important;
-	}
-	
-	#coins > tr > th {
-		width: 33%;
-		display: grid;
-		place-items: center;
-	}
-	
-	body {
-		min-height: 100vh;
-		display: grid;
-		place-items: center;
-		background: linear-gradient(to right, #000428, #004e92);
-		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-		background-size: cover;
-		background-attachment: fixed;
-	}
-	
-	#my-chart.line {
-		height: 500px;
-		max-width: 100%;
-		margin: 0 auto;
-	}
-					
-				.calculator { grid-area: calculator; }
+		table {
+			width: 100%;
+		}
 
-				
-				.Links { grid-area: Links; }
-				.offcanvas-body{
-					overflow-y: hidden;
-				}
+		img {
+			border-radius: 50%;
+		}
+
+		.modal-body {
+			display: grid;
+			place-items: center;
+		}
+
+		.chart-box {
+			width: 100%;
+		}
+
+		#coins {
+			display: table-caption;
+			width: inherit;
+			min-height: 350px;
+			height: calc(80vh - 100px);
+			max-height: calc(80vh - 100px);
+			overflow-y: scroll;
+		}
+
+		#coins>tr {
+			display: flex;
+			border-bottom-width: 1px;
+			justify-content: space-between;
+			transition: all 1s ease;
+			border-radius: 10px;
+			border-style: none !important;
+
+		}
+
+		#coins>tr:hover {
+			background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 78, 146, 1) 100%);
+
+		}
+
+		#coins>tr>td {
+			width: 33%;
+			display: grid;
+			place-items: center;
+			cursor: pointer;
+			border-style: none !important;
+		}
+
+		#coins>tr>th {
+			width: 33%;
+			display: grid;
+			place-items: center;
+		}
+
+		body {
+			min-height: 100vh;
+			display: grid;
+			place-items: center;
+			background: linear-gradient(to right, #000428, #004e92);
+			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			background-size: cover;
+			background-attachment: fixed;
+		}
+
+		#my-chart.line {
+			height: 500px;
+			max-width: 100%;
+			margin: 0 auto;
+		}
+
+		.calculator {
+			grid-area: calculator;
+		}
+
+
+		.Links {
+			grid-area: Links;
+		}
+
+		.offcanvas-body {
+			overflow-y: hidden;
+		}
 	</style>
 </head>
 
 <body class="">
 	<div class="container">
-		
+
 		<div class="text-light">
 
 			<h1 class="p-2 d-flex justify-content-center display-5">
 				📈 Elliot Waves Calculator 📈
-					
-				</h1>
-				
-			<div class="mb-2 d-flex justify-content-center display-8"> Just Tell it Wave 1 Starting and Ending price </div>
+
+			</h1>
+
+			<div class="mb-2 d-flex justify-content-center display-8"> Just Tell it Wave 1 Starting and Ending price
+			</div>
 		</div>
 
 		<div class="m-2">
 			<div class="row g-2">
-					<div class="col-lg-9 card ">
-							<div class="chart-box  p-2">
-									<canvas id="myChart"></canvas>
-								</div>
-							</div>
+				<div class="col-lg-9 card ">
+					<div class="chart-box  p-2">
+						<canvas id="myChart"></canvas>
+					</div>
+				</div>
 				<div class="col-lg-3 card ">
-				<div class="calculator my-auto">
+					<div class="calculator my-auto">
 						<h5 class="card-title px-2">Calculator</h5>
 						<hr>
 						<div class="mb-3">
-							<input type="number" class="form-control" id="wave1s" placeholder="Starting Price" /> </div>
+							<input type="number" class="form-control" id="wave1s" placeholder="Starting Price" />
+						</div>
 						<div class="mb-3">
-							<input type="number" class="form-control" id="wave1e" placeholder="Ending Price" /> </div>
+							<input type="number" class="form-control" id="wave1e" placeholder="Ending Price" />
+						</div>
 						<div class="mb-3">
-								<input type="number" class="form-control" id="Multiplier" placeholder="Multiplier"/> </div>
-							<div class="d-grid gap-2">
-									<button id="submit" class="btn btn-success btn-sm">Calculate</button>
-									<button id="save" class="btn btn-outline-primary btn-sm" disabled>Save</button>
-									
-									<button id="getChart" type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled> Details </button>
-									<button class="btn btn-outline-dark btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-star text-warning"></i>&nbsp;Favorites</button>
-									
-									<a target="_blank" href="https://avgcoin.netlify.app/" class="btn btn-dark btn-sm">Average Price Calculator ↗</a>
-									
-							</div>
+							<input type="number" class="form-control" id="Multiplier" placeholder="Multiplier" />
+						</div>
+						<div class="d-grid gap-2">
+							<button id="submit" class="btn btn-success btn-sm">Calculate</button>
+							<button id="save" class="btn btn-outline-primary btn-sm" disabled>Save</button>
+
+							<button id="getChart" type="button" class="btn btn-outline-secondary btn-sm"
+								data-bs-toggle="modal" data-bs-target="#exampleModal" disabled> Details </button>
+							<button class="btn btn-outline-dark btn-sm" type="button" data-bs-toggle="offcanvas"
+								data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i
+									class="fas fa-star text-warning"></i>&nbsp;Favorites</button>
+
+							<a target="_blank" href="https://avgcoin.netlify.app/" class="btn btn-dark btn-sm">Average
+								Price Calculator ↗</a>
+
+						</div>
 					</div>
 				</div>
-				
-				
-		</div>
-			</div>
-			
-					
 
-			
-		
+
+			</div>
+		</div>
+
+
+
+
+
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -156,78 +186,78 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">
-							<h5 class="card-title">Wave Points</h5>
-						</h5>
+						<h5 class="card-title">Wave Points</h5>
+					</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-						
-								
-								<div class="waves" style="width: 100%">
-									
-									<table class="table rounded table-striped">
-										<thead>
-											<tr>
-												<th>Points</th>
-												<th>Price</th>
-												<th>Price 2</th>
-												<th>Price 3</th>
-												
-											</tr>
-										</thead>
-										<tbody class="wavepoints">
-												<tr>
-													<td>Point 0</td>
-													<td></td>
-													<td></td>
-													<td></td>
-												
-												</tr>
-												<tr>
-													<td>Point 1</td>
-													<td></td>
-													<td></td>
-													<td></td>
-												
-												</tr>
-												<tr>
-													<td>Point 2</td>
-													<td></td>
-													<td></td>
-													<td></td>
-													
-												</tr>
-												<tr class="text-dark">
-													<td>(if Point3 is)</td>
-													<td style="background:#0d53a8;"><b>Normal</b></td>
-													<td style="background:#1f7308;"><b>Extended</b></td>
-													<td style="background:#ff8000;"><b>Extended +</b></td>
-													
-												</tr>
-												<tr>
-													<td>Point 3</td>
-													<td></td>
-													<td></td>
-													<td></td>
-													
-												</tr>
-												<tr>
-													<td>Point 4</td>
-													<td></td>
-													<td></td>
-													<td></td>
-												
-												</tr>
-												<tr>
-													<td>Point 5</td>
-													<td></td>
-													<td></td>
-													<td></td>
-												
-											</tbody>
-									</table>
-								</div>
-							
+
+
+					<div class="waves" style="width: 100%">
+
+						<table class="table rounded table-striped">
+							<thead>
+								<tr>
+									<th>Points</th>
+									<th>Price</th>
+									<th>Price 2</th>
+									<th>Price 3</th>
+
+								</tr>
+							</thead>
+							<tbody class="wavepoints">
+								<tr>
+									<td>Point 0</td>
+									<td></td>
+									<td></td>
+									<td></td>
+
+								</tr>
+								<tr>
+									<td>Point 1</td>
+									<td></td>
+									<td></td>
+									<td></td>
+
+								</tr>
+								<tr>
+									<td>Point 2</td>
+									<td></td>
+									<td></td>
+									<td></td>
+
+								</tr>
+								<tr class="text-dark">
+									<td>(if Point3 is)</td>
+									<td style="background:#0d53a8;"><b>Normal</b></td>
+									<td style="background:#1f7308;"><b>Extended</b></td>
+									<td style="background:#ff8000;"><b>Extended +</b></td>
+
+								</tr>
+								<tr>
+									<td>Point 3</td>
+									<td></td>
+									<td></td>
+									<td></td>
+
+								</tr>
+								<tr>
+									<td>Point 4</td>
+									<td></td>
+									<td></td>
+									<td></td>
+
+								</tr>
+								<tr>
+									<td>Point 5</td>
+									<td></td>
+									<td></td>
+									<td></td>
+
+							</tbody>
+						</table>
+					</div>
+
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
@@ -236,25 +266,27 @@
 		</div>
 	</div>
 	<!-- Modal -->
-		<div class="modal fade"  id="importData" tabindex="0" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+	<div class="modal fade" id="importData" tabindex="0" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 			<div class="modal-content">
 				<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Import JSON</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<h5 class="modal-title" id="exampleModalLabel">Import JSON</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					
-						<textarea class="form-control" placeholder="Copy Data From Data.json and Paste here" id="importJson" style="width: 100%;height: 300px;"></textarea>
-					 
+
+					<textarea class="form-control" placeholder="Copy Data From Data.json and Paste here" id="importJson"
+						style="width: 100%;height: 300px;"></textarea>
+
 				</div>
 				<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-				<button type="button" id="confirmImport" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" id="confirmImport" class="btn btn-primary" data-bs-dismiss="modal">Save
+						changes</button>
 				</div>
 			</div>
-			</div>
 		</div>
+	</div>
 
 
 	<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -264,38 +296,46 @@
 		</div>
 		<div class="offcanvas-body">
 			<button class="btn btn-dark btn-sm" id="export">Export Data</button>
-			<button class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#importData" data-bs-dismiss="offcanvas"  id="">Import Data</button>
-				<table class="table rounded  ">
-						<thead>
-							<tr>
-								<th>Logo</th>
-								<th>Name</th>
-								<th>Point 0</th>
-								<th>Point 1</th>
-								<th>Delete</th>
-								
-							</tr>
-						</thead>
-						<tbody id="coins"> </tbody>
-					</table>
-					
-					<div class="contact-buttons">
-							<a class="social github-social" href="https://github.com/abhiib02/elliot_wave_calc" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a>
-							<a class="social codepen-social" href="https://codepen.io/abhishek-bhardwaj" target="_blank"><i class="fab fa-codepen" aria-hidden="true"></i></a>
-							<a class="social twitter-social" href="https://twitter.com/Abhiib02" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-							<a class="social linkedin-social" href="https://www.linkedin.com/in/abhishek-bhardwaj-191b9784/" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-		
-						</div>
-						
-						<ul>
-							<li><a class="btn-link" target="__blank" href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/9781118479506.app1">Learn Elliot Wave Thoery</a></li>
-							<li><a class="btn-link" target="__blank" href="https://bhardwaj.netlify.app/#/">Design and Developed By Abhishek Bhardwaj</a></li>
-						</ul>
-						
-					
+			<button class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#importData"
+				data-bs-dismiss="offcanvas" id="">Import Data</button>
+			<table class="table rounded  ">
+				<thead>
+					<tr>
+						<th>Logo</th>
+						<th>Name</th>
+						<th>Point 0</th>
+						<th>Point 1</th>
+						<th>Delete</th>
+
+					</tr>
+				</thead>
+				<tbody id="coins"> </tbody>
+			</table>
+
+			<div class="contact-buttons">
+				<a class="social github-social" href="https://github.com/abhiib02/elliot_wave_calc" target="_blank"><i
+						class="fab fa-github" aria-hidden="true"></i></a>
+				<a class="social codepen-social" href="https://codepen.io/abhishek-bhardwaj" target="_blank"><i
+						class="fab fa-codepen" aria-hidden="true"></i></a>
+				<a class="social twitter-social" href="https://twitter.com/Abhiib02" target="_blank"><i
+						class="fab fa-twitter" aria-hidden="true"></i></a>
+				<a class="social linkedin-social" href="https://www.linkedin.com/in/abhishek-bhardwaj-191b9784/"
+					target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+
+			</div>
+
+			<ul>
+				<li><a class="btn-link" target="__blank"
+						href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/9781118479506.app1">Learn Elliot Wave
+						Thoery</a></li>
+				<li><a class="btn-link" target="__blank" href="https://bhardwaj.netlify.app/#/">Design and Developed By
+						Abhishek Bhardwaj</a></li>
+			</ul>
+
+
 		</div>
 	</div>
-	
+
 
 
 
